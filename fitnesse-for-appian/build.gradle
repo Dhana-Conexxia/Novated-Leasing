@@ -64,9 +64,6 @@ task setReleaseVersion() {
 task assembleFitNesseForAppian() {
     dependsOn clean, build
     build.mustRunAfter('clean')
-    doFirst {
-        resetPropertiesFile()
-    }
     doLast {
         version = project["version"]
         copy {
@@ -110,7 +107,7 @@ task zipFitNesseForAppian(type: Zip) {
     dependsOn assembleFitNesseForAppian
     from fitNesseForAppianBuildDir
     version = project["version"]
-    archiveFileName = "${project.name}-${version}.zip"
+    archiveFileName = "${project.name}.zip"
     destinationDirectory = finalDestinationDir
 }
 

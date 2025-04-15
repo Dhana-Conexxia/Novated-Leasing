@@ -77,9 +77,6 @@ task copyOutputJARIntoTestExampleLib(type: Copy) {
 
 task copyConfigsIntoTestExample(type: Copy) {
     dependsOn build
-    doFirst {
-        resetPropertiesFile()
-    }
     from "${projectDir}/../shared/configs"
     into "build/resources/main/TestExample/src/main/resources/configs"
 }
@@ -128,7 +125,7 @@ task zipCucumberForAppian(type: Zip) {
     dependsOn clean, build, copyScriptsIntoFinalReleaseDirectory, copyTestExampleIntoFinalReleaseDirectory, copyDriversIntoFinalReleaseDirectory
     from cucumberForAppianBuildDir
     version = project["version"]
-    archiveFileName = "${project.name}-${version}.zip"
+    archiveFileName = "${project.name}.zip"
     destinationDirectory = finalDestinationDir
 }
 

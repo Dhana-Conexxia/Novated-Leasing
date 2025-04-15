@@ -11,16 +11,18 @@ An automated check will run for all MRs to ensure any changes compile with futur
 
 The easiest way to run tests is using the docker files within this project.
 1. Navigate to the `docker` directory
-2. Add an `.env` with the following keys
-   * GITLAB_TOKEN - Token that has read access to this projects package registry
+2. Download the `fitnesse-for-appian.zip` and `cucumber-for-appian.zip` from the [Package Registry](https://gitlab.com/appian-oss/appian-selenium-api/-/packages). Replace GITLAB_TOKEN and VERSION in the commands below
+   1. `curl -f --header "PRIVATE-TOKEN: <GITLAB_TOKEN>" "https://gitlab.com/api/v4/projects/appian-oss%2Fappian-selenium-api/packages/generic/FCS/<VERSION>/fitnesse-for-appian.zip" -o fitnesse-for-appian.zip`
+   2. `curl -f --header "PRIVATE-TOKEN: <GITLAB_TOKEN>" "https://gitlab.com/api/v4/projects/appian-oss%2Fappian-selenium-api/packages/generic/FCS/<VERSION>/cucumber-for-appian.zip" -o cucumber-for-appian.zip`
+3. Add an `.env` with the following keys
    * USERNAME - User that will be used to log in for tests
    * PASSWORD - Password for that user
    * (optional) SCREENSHOT_DIR - Path on your local machine that should be mapped to the screenshot directory
    * (optional) DOWNLOADS_DIR - Path on your local machine that should be mapped to the downloads directory
    * (optional) FITNESSEROOT_DIR - Path on your local machine that should be mapped to a Fitnesse root directory
    * (optional) CUCUMBERTEST_DIR - Path on your local machine that should be mapped to a directory with cucumber tests
-3. Bring up the docker containers using `docker-compose up`
-4. If you get errors about being unable to create directories, ensure the default directories (screenshots, downloads, FitNesseRoot, cucumber) exist before continuing
+4. Bring up the docker containers using `docker-compose up`
+5. If you get errors about being unable to create directories, ensure the default directories (screenshots, downloads, FitNesseRoot, cucumber) exist before continuing
 
 All tests executed using this method should use the `REMOTE_CHROME` browser. Execution of tests can be viewed at `localhost:4444`.
 
