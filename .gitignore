@@ -1,0 +1,14 @@
+**/.env
+**/.idea
+**/.gradle
+**/coverage.xml
+**/build/
+**/*.log
+**/*.mp4
+**/*.png
+**/*.DS_Store
+**/__pycache__/**/*
+examples/**/lib/*
+examples/**/configs/*
+**/.vscode
+**/poetry.lock
