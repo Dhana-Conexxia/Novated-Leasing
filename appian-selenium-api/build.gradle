@@ -71,10 +71,13 @@ if (System.getenv("CI") == "true") {
     }
 }
 
+jar {
+    archiveFileName = "appian-selenium-api.jar"
+}
+
 task assembleExampleProjects() {
     dependsOn jar
     doFirst {
-        resetPropertiesFile()
         addDependentFilesToExampleProjectDirectory("examples/appian-selenium-api-java")
         addDependentFilesToExampleProjectDirectory("examples/appian-selenium-api-cucumber")
     }
@@ -89,8 +92,6 @@ task setup() {
     jar.mustRunAfter('clean')
     assembleExampleProjects.mustRunAfter('jar')
     doLast {
-        removeFileFromGitIndex("../shared/configs/custom.properties")
-        removeFileFromGitIndex("../shared/configs/users.properties")
         exec {
             workingDir "${rootDir}/deployment"
             commandLine 'bash', 'setupCustomPropertiesForMac.sh', 'local'
@@ -245,12 +246,5 @@ def updateOldestSupportAppianVersionIfNecessary(appianVersionToRemove) {
         def newOldestSupport = getNextVersion(appianVersionToRemove)
         def update = file.text.replaceAll("oldestSupportAppianVersion=.*", "oldestSupportAppianVersion=" + newOldestSupport)
         file.write(update)
-    }
-}
-
-def removeFileFromGitIndex(file) {
-    exec {
-        commandLine 'git', 'update-index', '--skip-worktree',
-            file
     }
 }

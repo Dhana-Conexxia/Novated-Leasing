@@ -1,7 +1,5 @@
 FROM amazoncorretto:11-al2023
 
-ARG VERSION
-ARG GITLAB_TOKEN
 ARG USERNAME
 ARG PASSWORD
 
@@ -26,10 +24,7 @@ RUN mkdir -p ${HOME}/lib ${HOME}/screenshots ${HOME}/configs ${HOME}/downloads $
 
 # Setup Fitnesse
 # Download the fitnesse accoutrements
-RUN curl -f --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
-    "https://gitlab.com/api/v4/projects/appian-oss%2Fappian-selenium-api/packages/generic/FCS/${VERSION}/fitnesse-for-appian.zip" \
-    -o ${HOME}/fitnesse-for-appian.zip
-
+COPY fitnesse-for-appian.zip ${HOME}/fitnesse-for-appian.zip
 RUN unzip fitnesse-for-appian.zip -d fitnesse-for-appian && rm fitnesse-for-appian.zip
 RUN cp -r fitnesse-for-appian/lib/. ${HOME}/lib && \
     cp -r fitnesse-for-appian/FitNesseRoot/. ${HOME}/FitNesseRoot
@@ -39,10 +34,7 @@ RUN rm -rf fitnesse-for-appian
 
 # Setup Cucumber
 # Download cucumber accoutrements
-RUN curl -f --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
-    "https://gitlab.com/api/v4/projects/appian-oss%2Fappian-selenium-api/packages/generic/FCS/${VERSION}/cucumber-for-appian.zip" \
-    -o ${HOME}/cucumber-for-appian.zip
-
+COPY cucumber-for-appian.zip ${HOME}/cucumber-for-appian.zip
 RUN unzip cucumber-for-appian.zip -d cucumber-for-appian && rm cucumber-for-appian.zip
 RUN cp -r cucumber-for-appian/lib/. ${HOME}/lib && \
     cp cucumber-for-appian/pom.xml ${HOME}/pom.xml && \

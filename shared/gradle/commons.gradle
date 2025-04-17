@@ -28,32 +28,9 @@ static def validVersionNumber(versionNumber, majorVersionOnly) {
     return versionNumber ==~ versionNumberRegex;
 }
 
-def resetPropertiesFile() {
-    addFileToGitIndex("../shared/configs/custom.properties")
-    addFileToGitIndex("../shared/configs/users.properties")
-
-    checkoutFileFromGit("../shared/configs/custom.properties")
-    checkoutFileFromGit("../shared/configs/users.properties")
-    checkoutFileFromGit("../appian-selenium-api/src/test/java/com/appiancorp/ps/automatedtest/test/AbstractTest.java")
-}
-
-def addFileToGitIndex(file) {
-    exec {
-        commandLine 'git', 'update-index', '--no-skip-worktree', file
-    }
-}
-
-def checkoutFileFromGit(file) {
-    exec {
-        commandLine 'git', 'checkout', file
-    }
-}
-
 ext {
     validateReleaseNumbers = this.&validateReleaseNumbers
     addFileToGitIndex = this.&addFileToGitIndex
-    checkoutFileFromGit = this.&checkoutFileFromGit
     validVersionNumber = this.&validVersionNumber
     getNextVersion = this.&getNextVersion
-    resetPropertiesFile = this.&resetPropertiesFile
 }

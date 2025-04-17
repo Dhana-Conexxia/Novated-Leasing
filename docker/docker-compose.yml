@@ -4,8 +4,6 @@ services:
     build:
       context: .
       args:
-        VERSION: 1.0.0
-        GITLAB_TOKEN: ${GITLAB_TOKEN}
         USERNAME: ${USERNAME}
         PASSWORD: ${PASSWORD}
     ports:
