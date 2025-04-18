@@ -7,7 +7,7 @@ import com.appiancorp.ps.automatedtest.common.Settings;
 
 public abstract class AbstractTest {
   protected static String TEST_BROWSER = System.getenv("browser") == null ? "REMOTE_CHROME" : System.getenv("browser");
-  protected static String TEST_SITE_VERSION = System.getenv("version") == null ? "25.2" : System.getenv("version");
+  protected static String TEST_SITE_VERSION = System.getenv("version") == null ? "25.3" : System.getenv("version");
   protected static String TEST_SITE_URL = System.getenv("url");
   protected static String TEST_SITE_LOCALE = "en_US";
   protected static String TEST_ROLE = "role.basic_user";
