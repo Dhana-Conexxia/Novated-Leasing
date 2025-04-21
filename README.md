@@ -35,4 +35,3 @@ the [GitLab Package Registry](https://gitlab.com/appian-oss/appian-selenium-api/
 
 If you prefer a all-in-one Docker image, that can be found in
 the [Container Registry](https://gitlab.com/appian-oss/appian-selenium-api/container_registry)
-
