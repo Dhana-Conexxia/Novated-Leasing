@@ -6,7 +6,7 @@ static def getNextVersion(currentVersion) {
     if (nextRelease % 1 >= 0.5) {
         nextRelease = (nextRelease + 1) - nextRelease % 1 + 0.1
     }
-    return String.format("%2.1f" , nextRelease);
+    return String.format("%2.1f", nextRelease);
 }
 
 static def validateReleaseNumbers(project) {
@@ -24,7 +24,7 @@ static def validateReleaseNumbers(project) {
 }
 
 static def validVersionNumber(versionNumber, majorVersionOnly) {
-    String versionNumberRegex = majorVersionOnly ?  /^(\d+\.)?((1|2|3|4))$/ : /^(\d+\.)?((1|2|3|4)\.)?(\d+)/;
+    String versionNumberRegex = majorVersionOnly ? /^(\d+\.)?((1|2|3|4))$/ : /^(\d+\.)?((1|2|3|4)\.)?(\d+)/;
     return versionNumber ==~ versionNumberRegex;
 }
 

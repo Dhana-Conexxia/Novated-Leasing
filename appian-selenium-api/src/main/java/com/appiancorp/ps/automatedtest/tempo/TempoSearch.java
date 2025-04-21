@@ -1,9 +1,13 @@
 package com.appiancorp.ps.automatedtest.tempo;
 
-import java.time.Duration;
-
-import org.apache.logging.log4j.Logger;
+import com.appiancorp.ps.automatedtest.common.AppianObject;
+import com.appiancorp.ps.automatedtest.common.Settings;
+import com.appiancorp.ps.automatedtest.exception.ExceptionBuilder;
+import com.appiancorp.ps.automatedtest.properties.Clearable;
+import com.appiancorp.ps.automatedtest.properties.Populateable;
+import com.appiancorp.ps.automatedtest.properties.WaitForReturn;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -11,109 +15,116 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.appiancorp.ps.automatedtest.common.AppianObject;
-import com.appiancorp.ps.automatedtest.common.Settings;
-import com.appiancorp.ps.automatedtest.common.Version;
-import com.appiancorp.ps.automatedtest.exception.ExceptionBuilder;
-import com.appiancorp.ps.automatedtest.properties.Clearable;
-import com.appiancorp.ps.automatedtest.properties.Populateable;
-import com.appiancorp.ps.automatedtest.properties.WaitForReturn;
+import java.time.Duration;
 
-public class TempoSearch extends AppianObject implements WaitForReturn, Populateable, Clearable {
+public final class TempoSearch extends AppianObject implements WaitForReturn, Populateable, Clearable {
 
-  private static final Logger LOG = LogManager.getLogger(TempoSearch.class);
-  private static final String XPATH_ABSOLUTE_SEARCH_FIELD = Settings.getByConstant("xpathAbsoluteSearchField");
-  private static final String XPATH_ABSOLUTE_FEED_ENTRY = Settings.getByConstant("xpathAbsoluteFeedEntry");
-  private static final String XPATH_ABSOLUTE_SHOW_RESULTS_LABEL_ENTRY = Settings.getByConstant("xpathAbsoluteShowResultsLabelEntry");
-  private static final String XPATH_ABSOLUTE_SEARCH_CLEAR_X = Settings.getByConstant("xpathAbsoluteSearchClearX");
+    private static final Logger LOG = LogManager.getLogger(TempoSearch.class);
+    private static final String XPATH_ABSOLUTE_SEARCH_FIELD = Settings.getByConstant("xpathAbsoluteSearchField");
+    private static final String XPATH_ABSOLUTE_FEED_ENTRY = Settings.getByConstant("xpathAbsoluteFeedEntry");
+    private static final String XPATH_ABSOLUTE_SHOW_RESULTS_LABEL_ENTRY =
+            Settings.getByConstant("xpathAbsoluteShowResultsLabelEntry");
+    private static final String XPATH_ABSOLUTE_SEARCH_CLEAR_X = Settings.getByConstant("xpathAbsoluteSearchClearX");
 
-  public static TempoSearch getInstance(Settings settings) {
-    return new TempoSearch(settings);
-  }
-
-  private TempoSearch(Settings settings) {
-    super(settings);
-  }
-
-  @Override
-  public String getXpath(String... params) {
-    return XPATH_ABSOLUTE_SEARCH_FIELD;
-  }
-
-  @Override
-  public void populate(String... params) {
-    String searchValue = getParam(0, params);
-
-    if (LOG.isDebugEnabled()) LOG.debug("SEARCH FOR [" + searchValue + "]");
-
-    try {
-      WebElement fieldLayout = settings.getDriver().findElement(By.xpath(getXpath(params)));
-
-      scrollIntoView(fieldLayout);
-      fieldLayout.clear();
-      fieldLayout.sendKeys(searchValue);
-      fieldLayout.sendKeys(Keys.ENTER);
-
-      new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds())).until(
-            ExpectedConditions.invisibilityOfElementLocated(By.xpath(XPATH_ABSOLUTE_SHOW_RESULTS_LABEL_ENTRY)));
-
-      waitForProgressBar();
-
-    } catch (Exception e) {
-      throw ExceptionBuilder.build(e, settings, "Tempo Search", searchValue);
+    public static TempoSearch getInstance(Settings settings) {
+        return new TempoSearch(settings);
     }
-  }
 
-  @Override
-  public void waitFor(String... params) {
-    String type = getParam(0, params);
-
-    if (LOG.isDebugEnabled()) LOG.debug("WAIT FOR SEARCH [" + type + "]");
-
-    try {
-      // Wait until the page is loaded before searching
-      (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(XPATH_ABSOLUTE_FEED_ENTRY)));
-      (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params))));
-    } catch (Exception e) {
-      throw ExceptionBuilder.build(e, settings, "Tempo Search");
+    private TempoSearch(Settings settings) {
+        super(settings);
     }
-  }
 
-  @Override
-  public boolean waitForReturn(boolean waitForPresent, int timeout, String... params) {
-    String type = getParam(0, params);
-
-    if (LOG.isDebugEnabled()) LOG.debug("WAIT FOR SEARCH [" + type + "]");
-
-    try {
-      if (waitForPresent) {
-        (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params))));
-      } else {
-        (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(getXpath(params))));
-      }
-      return true;
-    } catch (TimeoutException e) {
-      return false;
-    } catch (Exception e) {
-      throw ExceptionBuilder.build(e, settings, "Tempo Search");
+    @Override
+    public String getXpath(String... params) {
+        return XPATH_ABSOLUTE_SEARCH_FIELD;
     }
-  }
 
-  @Override
-  public boolean waitForReturn(boolean waitForPresent, String... params) {
-    return waitForReturn(waitForPresent, settings.getTimeoutSeconds(), params);
-  }
+    @Override
+    public void populate(String... params) {
+        String searchValue = getParam(0, params);
 
-  @Override
-  public void clear(String... params) {
-    if (LOG.isDebugEnabled()) LOG.debug("CLEAR SEARCH VALUE");
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("SEARCH FOR [" + searchValue + "]");
+        }
 
-    try{
-      WebElement searchX = settings.getDriver().findElement(By.xpath(XPATH_ABSOLUTE_SEARCH_CLEAR_X));
-      searchX.click();
-      waitForProgressBar();
-    }catch (Exception e) {
-      throw ExceptionBuilder.build(e, settings, "Clear Tempo Search");
+        try {
+            WebElement fieldLayout = settings.getDriver().findElement(By.xpath(getXpath(params)));
+
+            scrollIntoView(fieldLayout);
+            fieldLayout.clear();
+            fieldLayout.sendKeys(searchValue);
+            fieldLayout.sendKeys(Keys.ENTER);
+
+            new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds())).until(
+                    ExpectedConditions.invisibilityOfElementLocated(By.xpath(XPATH_ABSOLUTE_SHOW_RESULTS_LABEL_ENTRY)));
+
+            waitForProgressBar();
+
+        } catch (Exception e) {
+            throw ExceptionBuilder.build(e, settings, "Tempo Search", searchValue);
+        }
     }
-  }
+
+    @Override
+    public void waitFor(String... params) {
+        String type = getParam(0, params);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("WAIT FOR SEARCH [" + type + "]");
+        }
+
+        try {
+            // Wait until the page is loaded before searching
+            (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath(XPATH_ABSOLUTE_FEED_ENTRY)));
+            (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params))));
+        } catch (Exception e) {
+            throw ExceptionBuilder.build(e, settings, "Tempo Search");
+        }
+    }
+
+    @Override
+    public boolean waitForReturn(boolean waitForPresent, int timeout, String... params) {
+        String type = getParam(0, params);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("WAIT FOR SEARCH [" + type + "]");
+        }
+
+        try {
+            if (waitForPresent) {
+                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(
+                        ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params))));
+            } else {
+                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(
+                        ExpectedConditions.invisibilityOfElementLocated(By.xpath(getXpath(params))));
+            }
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        } catch (Exception e) {
+            throw ExceptionBuilder.build(e, settings, "Tempo Search");
+        }
+    }
+
+    @Override
+    public boolean waitForReturn(boolean waitForPresent, String... params) {
+        return waitForReturn(waitForPresent, settings.getTimeoutSeconds(), params);
+    }
+
+    @Override
+    public void clear(String... params) {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("CLEAR SEARCH VALUE");
+        }
+
+        try {
+            WebElement searchX = settings.getDriver().findElement(By.xpath(XPATH_ABSOLUTE_SEARCH_CLEAR_X));
+            searchX.click();
+            waitForProgressBar();
+        } catch (Exception e) {
+            throw ExceptionBuilder.build(e, settings, "Clear Tempo Search");
+        }
+    }
 }
