@@ -1,6 +1,20 @@
 plugins {
     id 'java'
+    id 'checkstyle'
 }
+
+checkstyle {
+    toolVersion =  '10.23.0'
+}
+//tasks.withType(Checkstyle).configureEach {
+//    configDirectory.set(file("$rootDir/config/checkstyle"))
+//}
+
+//checkstyle {
+//    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+//    configDirectory = file("${rootDir}/config/checkstyle")
+//}
+
 
 group 'com.appiancorp.ps.automatedtest'
 
@@ -71,9 +85,9 @@ task assembleFitNesseForAppian() {
             into fitNesseForAppianBuildDir
             filter {
                 line ->
-                line.replaceAll('DEFAULT_APPIAN_VERSION_REPLACEMENT_KEY', version.toString().substring(0, 4))
-                .replaceAll('FITNESSE_FOR_APPIAN_VERSION_REPLACEMENT_KEY', version)
-                .replaceAll('CURRENT_SUPPORT_APPIAN_VERSIONS_REPLACEMENT_KEY', getStringForCurrentSupportAppianVersions(version))
+                    line.replaceAll('DEFAULT_APPIAN_VERSION_REPLACEMENT_KEY', version.toString().substring(0, 4))
+                            .replaceAll('FITNESSE_FOR_APPIAN_VERSION_REPLACEMENT_KEY', version)
+                            .replaceAll('CURRENT_SUPPORT_APPIAN_VERSIONS_REPLACEMENT_KEY', getStringForCurrentSupportAppianVersions(version))
             }
             exclude "runFitNesseTest.sh", "setupCustomProperties.sh", "fitnesse-automation.properties"
         }
@@ -96,7 +110,7 @@ task assembleFitNesseForAppian() {
             into "${fitNesseForAppianBuildDir}/FitNesseRoot/FitNesseForAppian/ReleaseNotes"
             filter {
                 line ->
-                line.replaceAll(/^v(\d+\.)?((1|2|3|4)\.)?(\d+)/, "!3 ${line}")
+                    line.replaceAll(/^v(\d+\.)?((1|2|3|4)\.)?(\d+)/, "!3 ${line}")
             }
             rename("CHANGELOG.md", "content.txt")
         }

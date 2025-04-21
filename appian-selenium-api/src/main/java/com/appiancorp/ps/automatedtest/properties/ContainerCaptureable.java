@@ -4,5 +4,5 @@ import org.json.JSONObject;
 
 public interface ContainerCaptureable {
 
-  public JSONObject getContents(String... params);
+    public JSONObject getContents(String... params);
 }

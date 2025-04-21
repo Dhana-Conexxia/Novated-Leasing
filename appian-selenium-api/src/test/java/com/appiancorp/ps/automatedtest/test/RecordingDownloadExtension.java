@@ -1,5 +1,15 @@
 package com.appiancorp.ps.automatedtest.test;
 
+import com.appiancorp.ps.automatedtest.common.Constants;
+import com.appiancorp.ps.automatedtest.common.PropertiesUtilities;
+import org.apache.commons.lang3.tuple.Pair;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,18 +20,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-
-import com.appiancorp.ps.automatedtest.common.Constants;
-import com.appiancorp.ps.automatedtest.common.PropertiesUtilities;
-import org.apache.commons.lang3.tuple.Pair;
-import org.json.JSONObject;
-
-import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
-import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
 public class RecordingDownloadExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
     private static final Logger LOG = LogManager.getLogger(RecordingDownloadExtension.class);
@@ -122,7 +120,9 @@ public class RecordingDownloadExtension implements BeforeTestExecutionCallback, 
         try {
             try (InputStream in = sendRequest(request, HttpResponse.BodyHandlers.ofInputStream());
                  FileOutputStream out = new FileOutputStream(localPath)) {
-                if (in != null) in.transferTo(out);
+                if (in != null) {
+                    in.transferTo(out);
+                }
             }
         } catch (IOException e) {
             LOG.warn("Error occurred while getting file: {}", e.getMessage());

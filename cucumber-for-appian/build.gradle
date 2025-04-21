@@ -1,6 +1,20 @@
 plugins {
     id 'java'
+    id 'checkstyle'
 }
+
+checkstyle {
+    toolVersion =  '10.23.0'
+}
+//tasks.withType(Checkstyle).configureEach {
+//    configDirectory.set(file("$rootDir/config/checkstyle"))
+//}
+
+//checkstyle {
+//    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+//    configDirectory = file("${rootDir}/config/checkstyle")
+//}
+
 
 group 'com.appiancorp.ps.automatedtest'
 

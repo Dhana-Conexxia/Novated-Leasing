@@ -2,5 +2,5 @@ package com.appiancorp.ps.automatedtest.properties;
 
 public interface Countable {
 
-  public Integer count(String... params);
+    public Integer count(String... params);
 }

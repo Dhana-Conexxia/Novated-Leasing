@@ -2,5 +2,5 @@ package com.appiancorp.ps.automatedtest.properties;
 
 public interface VerifiableMultiple {
 
-  public boolean containsMultiple(String[] values, String... params);
+    public boolean containsMultiple(String[] values, String... params);
 }

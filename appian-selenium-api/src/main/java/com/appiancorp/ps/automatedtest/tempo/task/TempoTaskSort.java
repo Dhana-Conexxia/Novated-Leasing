@@ -1,16 +1,15 @@
 package com.appiancorp.ps.automatedtest.tempo.task;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.appiancorp.ps.automatedtest.common.AppianObject;
 import com.appiancorp.ps.automatedtest.common.Settings;
 import com.appiancorp.ps.automatedtest.exception.ExceptionBuilder;
 import com.appiancorp.ps.automatedtest.properties.Clickable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-public class TempoTaskSort extends AppianObject implements Clickable {
+public final class TempoTaskSort extends AppianObject implements Clickable {
 
     private static final Logger LOG = LogManager.getLogger(TempoTaskSort.class);
     private static final String XPATH_SORT = Settings.getByConstant("xpathTaskSorting");
@@ -39,7 +38,9 @@ public class TempoTaskSort extends AppianObject implements Clickable {
     public void click(String... params) {
         String xPathToClick = getParam(0, params);
 
-        if (LOG.isDebugEnabled()) LOG.debug("CLICK XPATH [" + xPathToClick + "]");
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("CLICK XPATH [" + xPathToClick + "]");
+        }
 
         try {
             WebElement xPathElement = settings.getDriver().findElement(By.xpath(xPathToClick));

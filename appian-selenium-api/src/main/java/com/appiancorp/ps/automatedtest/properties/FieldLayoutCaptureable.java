@@ -4,5 +4,5 @@ import org.openqa.selenium.WebElement;
 
 public interface FieldLayoutCaptureable {
 
-  public String capture(WebElement fieldLayout, String... params);
+    public String capture(WebElement fieldLayout, String... params);
 }

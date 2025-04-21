@@ -1,4 +1,5 @@
 stages:
+  - Lint
   - Release Packages
   - Release Images
 
@@ -6,6 +7,18 @@ workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'
     - if: '$CI_PIPELINE_SOURCE == "trigger"'
+
+Lint:
+  stage: Lint
+  image: amazoncorretto:11-al2023
+  script:
+    - ./gradlew checkStyleMain
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+  artifacts:
+    paths:
+      - "**/build/reports/checkstyle/*.html"
+    when: always
 
 Release:
   stage: Release Packages

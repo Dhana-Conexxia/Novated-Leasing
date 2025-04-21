@@ -1,25 +1,26 @@
 package com.appiancorp.ps.automatedtest.tempo.interfaces;
 
-import java.time.Duration;
-
 import com.appiancorp.ps.automatedtest.common.AppianObject;
 import com.appiancorp.ps.automatedtest.common.Settings;
 import com.appiancorp.ps.automatedtest.exception.ExceptionBuilder;
 import com.appiancorp.ps.automatedtest.properties.Verifiable;
 import com.appiancorp.ps.automatedtest.properties.WaitFor;
 import com.appiancorp.ps.automatedtest.properties.WaitForReturn;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class TempoCardChoiceField extends AppianObject implements Verifiable, WaitFor, WaitForReturn {
 
     private static final Logger LOG = LogManager.getLogger(TempoCardChoiceField.class);
-    private static final String XPATH_ABSOLUTE_CARD_CHOICE_FIELD = Settings.getByConstant("xpathAbsoluteCardChoiceField");
+    private static final String XPATH_ABSOLUTE_CARD_CHOICE_FIELD =
+            Settings.getByConstant("xpathAbsoluteCardChoiceField");
     private static final String XPATH_CARD_CHOICE_SELECTED = Settings.getByConstant("xpathCardChoiceSelected");
 
     public static TempoCardChoiceField getInstance(Settings settings) {
@@ -34,10 +35,12 @@ public class TempoCardChoiceField extends AppianObject implements Verifiable, Wa
     public void waitFor(String... params) {
         String cardChoiceName = getParam(0, params);
 
-        if (LOG.isDebugEnabled()) LOG.debug("WAIT FOR CARD CHOICE FIELD [" + cardChoiceName + "]");
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("WAIT FOR CARD CHOICE FIELD [" + cardChoiceName + "]");
+        }
         try {
             (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params)))
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(params)))
             );
         } catch (Exception e) {
             throw ExceptionBuilder.build(e, settings, "Wait for Card Choice Field", cardChoiceName);
@@ -60,13 +63,17 @@ public class TempoCardChoiceField extends AppianObject implements Verifiable, Wa
     public boolean waitForReturn(boolean waitForPresent, int timeout, String... params) {
         String cardChoiceName = getParam(0, params);
 
-        if (LOG.isDebugEnabled()) LOG.debug("WAIT FOR CARD CHOICE FIELD [" + cardChoiceName + "]");
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("WAIT FOR CARD CHOICE FIELD [" + cardChoiceName + "]");
+        }
 
         try {
             if (waitForPresent) {
-                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(ExpectedConditions.presenceOfElementLocated(By.xpath(getXpath(params))));
+                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(
+                        ExpectedConditions.presenceOfElementLocated(By.xpath(getXpath(params))));
             } else {
-                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(getXpath(params))));
+                (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(timeout))).until(
+                        ExpectedConditions.invisibilityOfElementLocated(By.xpath(getXpath(params))));
             }
             return true;
         } catch (TimeoutException e) {
@@ -86,7 +93,9 @@ public class TempoCardChoiceField extends AppianObject implements Verifiable, Wa
         String cardName = getParam(0, params);
         String fieldName = getParam(1, params);
 
-        if (LOG.isDebugEnabled()) LOG.debug("CONTAINS [" + cardName + "]");
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("CONTAINS [" + cardName + "]");
+        }
         try {
             WebElement card = TempoCardChoice.getInstance(settings).getWebElement(cardName, fieldName);
             return card.getAttribute("class").contains(XPATH_CARD_CHOICE_SELECTED);
