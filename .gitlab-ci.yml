@@ -20,6 +20,14 @@ Lint:
       - "**/build/reports/checkstyle/*.html"
     when: always
 
+Ensure Latest Java Compat:
+  stage: Lint
+  image: amazoncorretto:22-al2023
+  script:
+    - ./gradlew compileJava
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+
 Release:
   stage: Release Packages
   image: amazoncorretto:11-al2023

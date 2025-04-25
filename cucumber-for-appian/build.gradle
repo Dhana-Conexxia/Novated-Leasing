@@ -6,15 +6,10 @@ plugins {
 checkstyle {
     toolVersion =  '10.23.0'
 }
-//tasks.withType(Checkstyle).configureEach {
-//    configDirectory.set(file("$rootDir/config/checkstyle"))
-//}
 
-//checkstyle {
-//    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
-//    configDirectory = file("${rootDir}/config/checkstyle")
-//}
-
+tasks.withType(JavaCompile).configureEach {
+    options.deprecation = true
+}
 
 group 'com.appiancorp.ps.automatedtest'
 

@@ -6,23 +6,11 @@ plugins {
 
 checkstyle {
     toolVersion =  '10.23.0'
-    configProperties = [
-            'something': file("$rootDir/config/checkstyle/suppressions.xml")
-    ]
 }
-//tasks.withType(Checkstyle).configureEach {
-////    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
-////    configDirectory.set(file("$rootDir/config/checkstyle"))
-////    configProperties = [
-////            'supressionsFile': file("$rootDir/config/checkstyle/supressions.xml")
-////    ]
-//}
 
-//checkstyle {
-//    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
-//    configDirectory = file("${rootDir}/config/checkstyle")
-//}
-
+tasks.withType(JavaCompile).configureEach {
+    options.deprecation = true
+}
 
 // Load common gradle properties
 project.ext["repo_root"] = "$rootDir"
