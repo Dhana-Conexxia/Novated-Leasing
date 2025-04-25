@@ -389,9 +389,9 @@ public class BaseFixture {
         try {
             Robot robot = new Robot();
             robot.mouseMove(x, y);
-            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             robot.delay(1000);
-            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         } catch (AWTException e) {
             e.printStackTrace();
         }
@@ -900,7 +900,7 @@ public class BaseFixture {
      * @return Random alphanumeric string
      */
     public String getRandomString(int length) {
-        return RandomStringUtils.randomAlphanumeric(length);
+        return RandomStringUtils.insecure().nextAlphanumeric(length);
     }
 
     /**
@@ -914,7 +914,7 @@ public class BaseFixture {
      * @return Random alphabet string
      */
     public String getRandomAlphabetString(int length) {
-        return RandomStringUtils.randomAlphabetic(length);
+        return RandomStringUtils.insecure().nextAlphanumeric(length);
     }
 
     /**

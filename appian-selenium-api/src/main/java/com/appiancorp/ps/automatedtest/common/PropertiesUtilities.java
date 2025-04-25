@@ -1,6 +1,5 @@
 package com.appiancorp.ps.automatedtest.common;
 
-import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
@@ -8,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,7 +26,7 @@ public class PropertiesUtilities {
         // If inside of jar
         try {
             List<String> files = IOUtils.readLines(PropertiesUtilities.class.getClassLoader()
-                    .getResourceAsStream("configs/"), Charsets.UTF_8);
+                    .getResourceAsStream("configs/"), StandardCharsets.UTF_8);
             for (String file : files) {
                 inputStream = PropertiesUtilities.class.getClassLoader().getResourceAsStream("configs/" + file);
                 properties.load(inputStream);

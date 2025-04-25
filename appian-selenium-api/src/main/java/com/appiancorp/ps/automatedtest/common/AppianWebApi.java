@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 
 public class AppianWebApi extends AppianObject {
 
@@ -24,7 +25,7 @@ public class AppianWebApi extends AppianObject {
         try {
             URL url = new URL(settings.getUrl() + "/webapi/" + webApi);
             conn = (HttpURLConnection) url.openConnection();
-            byte[] encoded = Base64.encodeBase64(new String(username + ":" + password).getBytes());
+            byte[] encoded = Base64.encodeBase64((username + ":" + password).getBytes());
             conn.setRequestProperty("Authorization", "Basic " + new String(encoded));
 
             if (StringUtils.isNotBlank(body)) {
@@ -44,7 +45,7 @@ public class AppianWebApi extends AppianObject {
             if (conn.getResponseCode() != 200) {
                 throw new Exception("Web API request failed:" + conn.getResponseCode());
             } else {
-                return IOUtils.toString(conn.getInputStream());
+                return IOUtils.toString(conn.getInputStream(), Charset.defaultCharset());
             }
         } catch (Exception e) {
             throw ExceptionBuilder.build(e, settings, "Call Web API");

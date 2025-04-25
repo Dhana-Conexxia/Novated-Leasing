@@ -532,12 +532,12 @@ public class CucumberTempoFixture {
 
     @Given("^I populate picker field \"([^\"]*)\" with partially matching suggestions for$")
     public void populateFieldWithPartiallyMatchingPickerFieldSuggestion(String fieldName, List<String> fieldValues) {
-        fixture.populateFieldWithPartiallyMatchingPickerFieldSuggestion(fieldName, parseListToArray(fieldValues));
+        fixture.populateFieldWithContains(fieldName, parseListToArray(fieldValues));
     }
 
     @Given("^I populate picker field \"([^\"]*)\" with partially matching suggestions for \"([^\"]*)\"$")
     public void populateFieldWithPartiallyMatchingPickerFieldSuggestion(String fieldName, String fieldValue) {
-        fixture.populateFieldWithPartiallyMatchingPickerFieldSuggestion(fieldName, new String[] {fieldValue});
+        fixture.populateFieldWithContains(fieldName, new String[] {fieldValue});
     }
 
     @Given("^I populate field type \"([^\"]*)\" named \"([^\"]*)\" with$")
