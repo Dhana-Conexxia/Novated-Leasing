@@ -1,7 +1,8 @@
 stages:
   - Lint
-  - Release Packages
-  - Release Images
+  - Build Packages
+  - Build Images
+  - Release
 
 workflow:
   rules:
@@ -12,7 +13,7 @@ Lint:
   stage: Lint
   image: amazoncorretto:11-al2023
   script:
-    - ./gradlew checkStyleMain
+    - ./gradlew checkStyleMain checkStyleTest
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'
   artifacts:
@@ -28,8 +29,8 @@ Ensure Latest Java Compat:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'
 
-Release:
-  stage: Release Packages
+Build Packages:
+  stage: Build Packages
   image: amazoncorretto:11-al2023
   script:
     - dnf install -y python3-pip findutils
@@ -47,7 +48,7 @@ Release:
 
 Build Images:
   image: docker:latest
-  stage: Release Images
+  stage: Build Images
   services:
     - docker:dind
   variables:
@@ -66,5 +67,16 @@ Build Images:
     - docker push "$CI_REGISTRY_IMAGE/$IMAGE_NAME:$IMAGE_TAG"
     - docker tag "$CI_REGISTRY_IMAGE/$IMAGE_NAME:$IMAGE_TAG" "$CI_REGISTRY_IMAGE/$IMAGE_NAME:latest"
     - docker push "$CI_REGISTRY_IMAGE/$IMAGE_NAME:latest"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+
+Create Release:
+  stage: Release
+  image: registry.gitlab.com/gitlab-org/cli:latest
+  script:
+    - echo "Running the release job."
+  release:
+    tag_name: $PACKAGE_VERSION
+    description: 'Release of appian-selenium-api'
   rules:
     - if: '$CI_PIPELINE_SOURCE == "trigger"'

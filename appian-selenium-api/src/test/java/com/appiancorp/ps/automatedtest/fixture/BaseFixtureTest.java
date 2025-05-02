@@ -26,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class BaseFixtureTest extends AbstractTest {
 
     private static final Logger LOG = LogManager.getLogger(BaseFixtureTest.class);
+    @SuppressWarnings("checkstyle:visibilityModifier")
     public static BaseFixture fixture;
 
     @BeforeAll
@@ -200,7 +201,7 @@ public class BaseFixtureTest extends AbstractTest {
         long recordedWaitTime = 0;
         long differenceInExpectedAndExecutedTime = 0;
         // Arbitrary threshold of 1 second tolerance between recorded wait time and desired wait time
-        long TOLERANCE_THRESHOLD = 1000; // in milliseconds
+        final long toleranceThreshold = 1000; // in milliseconds
 
         fixture.setupWithBrowser(TEST_BROWSER);
         fixture.setAppianUrlTo(TEST_SITE_URL);
@@ -214,7 +215,7 @@ public class BaseFixtureTest extends AbstractTest {
         recordedWaitTime = endTime - startTime;
         differenceInExpectedAndExecutedTime = recordedWaitTime - desiredWaitTime;
 
-        assertTrue(differenceInExpectedAndExecutedTime < TOLERANCE_THRESHOLD);
+        assertTrue(differenceInExpectedAndExecutedTime < toleranceThreshold);
 
         startTime = System.currentTimeMillis();
         fixture.waitForMinutes(waitForMinutes);
@@ -224,7 +225,7 @@ public class BaseFixtureTest extends AbstractTest {
         recordedWaitTime = endTime - startTime;
         differenceInExpectedAndExecutedTime = recordedWaitTime - desiredWaitTime;
 
-        assertTrue(differenceInExpectedAndExecutedTime < TOLERANCE_THRESHOLD);
+        assertTrue(differenceInExpectedAndExecutedTime < toleranceThreshold);
         fixture.tearDown();
     }
 

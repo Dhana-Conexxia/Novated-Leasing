@@ -5,20 +5,21 @@ import com.appiancorp.ps.automatedtest.common.Settings;
 import org.junit.jupiter.api.BeforeAll;
 
 public abstract class AbstractTest {
-    protected static String TEST_BROWSER =
+    protected static final String TEST_BROWSER =
             System.getenv("browser") == null ? "REMOTE_CHROME" : System.getenv("browser");
-    protected static String TEST_SITE_VERSION = System.getenv("version") == null ? "25.3" : System.getenv("version");
-    protected static String TEST_SITE_URL = System.getenv("url");
-    protected static String TEST_SITE_LOCALE = "en_US";
-    protected static String TEST_ROLE = "role.basic_user";
-    protected static String TEST_USERNAME = "fitnesse.user";
-    protected static String TEST_SITE_USERNAME = "fitnesse.twoser";
-    protected static String TEST_PASSWORD = "password5";
-    protected static String TEST_ADMIN_ROLE = "role.admin";
+    protected static final String TEST_SITE_VERSION =
+            System.getenv("version") == null ? "25.3" : System.getenv("version");
+    protected static final String TEST_SITE_URL = System.getenv("url");
+    protected static final String TEST_SITE_LOCALE = "en_US";
+    protected static final String TEST_ROLE = "role.basic_user";
+    protected static final String TEST_USERNAME = "fitnesse.user";
+    protected static final String TEST_SITE_USERNAME = "fitnesse.twoser";
+    protected static final String TEST_PASSWORD = "password5";
+    protected static final String TEST_ADMIN_ROLE = "role.admin";
 
-    protected static String TEST_ADMIN_USERNAME = "fitnesse.admin";
-    protected static String TEST_ADMIN_PASSWORD = "Pa$$w0rd5";
-    protected static Integer TEST_TIMEOUT =
+    protected static final String TEST_ADMIN_USERNAME = "fitnesse.admin";
+    protected static final String TEST_ADMIN_PASSWORD = "Pa$$w0rd5";
+    protected static final Integer TEST_TIMEOUT =
             System.getenv("timeout") == null ? 10 : Integer.parseInt(System.getenv("timeout"));
 
     public static boolean atLeastVersion(Double version) {

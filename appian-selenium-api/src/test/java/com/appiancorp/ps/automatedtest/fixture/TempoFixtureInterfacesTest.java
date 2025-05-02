@@ -569,7 +569,7 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
     }
 
     @Test
-    public void testCheckboxFieldOptions_shortLabel() throws Exception {
+    public void testCheckboxFieldOptionsShortLabel() throws Exception {
         // Need a short label to reproduce the issue from AN-94100
         fixture.clickOnCheckboxOption("longerName");
         fixture.clickOnCheckboxOption("z");
@@ -1357,8 +1357,8 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
         assertEquals("FileUploadImage.png:FileUploadImage2.png", fixture.getFieldValue("MultipleFileUploadField"));
 
         fixture.clearField("MultipleFileUploadField"); // Should clear all fields
-        fixture.clearField(
-                "MultipleFileUploadField"); // Should not throw an error if the upload field doesn't have any uploaded files
+        // Should not throw an error if the upload field doesn't have any uploaded files
+        fixture.clearField("MultipleFileUploadField");
 
         // Grid
         assertFalse(fixture.verifyGridColumnRowIsNotBlank("EditableGrid[3]",
@@ -1579,35 +1579,35 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
     @Test
     public void testGetGridStandardContents() throws Exception {
         // Grid with normal labels
-        JSONObject expected_grid = new JSONObject();
-        JSONArray expected_contents = new JSONArray();
+        JSONObject expectedGrid = new JSONObject();
+        JSONArray expectedContents = new JSONArray();
         for (int i = 1; i <= 2; i++) {
-            JSONObject expected_row = new JSONObject();
-            expected_row.put("id", String.valueOf(i));
-            expected_row.put("value", "Value " + i);
-            expected_row.put("description", "Description " + i);
-            expected_contents.put(i - 1, expected_row);
+            JSONObject expectedRow = new JSONObject();
+            expectedRow.put("id", String.valueOf(i));
+            expectedRow.put("value", "Value " + i);
+            expectedRow.put("description", "Description " + i);
+            expectedContents.put(i - 1, expectedRow);
         }
-        expected_grid.put("Standard Grid", expected_contents);
-        JSONObject actual_grid = fixture.getGridContents("Standard Grid");
-        assertTrue(expected_grid.similar(actual_grid));
+        expectedGrid.put("Standard Grid", expectedContents);
+        JSONObject actualGrid = fixture.getGridContents("Standard Grid");
+        assertTrue(expectedGrid.similar(actualGrid));
     }
 
     @Test
     public void testGetGridAbnormalContents() throws Exception {
         // Grid with duplicate and blank labels
-        JSONObject expected_grid = new JSONObject();
-        JSONArray expected_contents = new JSONArray();
+        JSONObject expectedGrid = new JSONObject();
+        JSONArray expectedContents = new JSONArray();
         for (int i = 1; i <= 2; i++) {
-            JSONObject expected_row = new JSONObject();
-            expected_row.put("id", String.valueOf(i));
-            expected_row.put("[2]", "Value " + i);
-            expected_row.put("id[2]", "Description " + i);
-            expected_contents.put(i - 1, expected_row);
+            JSONObject expectedRow = new JSONObject();
+            expectedRow.put("id", String.valueOf(i));
+            expectedRow.put("[2]", "Value " + i);
+            expectedRow.put("id[2]", "Description " + i);
+            expectedContents.put(i - 1, expectedRow);
         }
-        expected_grid.put("Abnormal Labels", expected_contents);
-        JSONObject actual_grid = fixture.getGridContents("Abnormal Labels");
-        assertTrue(expected_grid.similar(actual_grid));
+        expectedGrid.put("Abnormal Labels", expectedContents);
+        JSONObject actualGrid = fixture.getGridContents("Abnormal Labels");
+        assertTrue(expectedGrid.similar(actualGrid));
     }
 
     /**** Button ****/
