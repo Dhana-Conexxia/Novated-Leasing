@@ -13,10 +13,12 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 public abstract class AbstractLoginTest<T extends TempoFixture> extends AbstractTest {
 
+    @SuppressWarnings("checkstyle:visibilityModifier")
     @RegisterExtension
     RecordingDownloadExtension downloader = new RecordingDownloadExtension();
 
     private static final Logger LOG = LogManager.getLogger(AbstractLoginTest.class);
+    @SuppressWarnings("checkstyle:visibilityModifier")
     public T fixture;
 
     protected AbstractLoginTest(T fixture) {
