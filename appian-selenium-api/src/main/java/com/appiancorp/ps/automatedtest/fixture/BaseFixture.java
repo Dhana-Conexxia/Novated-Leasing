@@ -914,7 +914,7 @@ public class BaseFixture {
      * @return Random alphabet string
      */
     public String getRandomAlphabetString(int length) {
-        return RandomStringUtils.insecure().nextAlphanumeric(length);
+        return RandomStringUtils.insecure().nextAlphabetic(length);
     }
 
     /**

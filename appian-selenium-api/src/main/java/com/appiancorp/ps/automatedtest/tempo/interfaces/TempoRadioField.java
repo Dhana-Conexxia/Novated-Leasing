@@ -41,10 +41,10 @@ public class TempoRadioField extends AbstractTempoField {
         if (isFieldIndex(fieldValue)) {
             int index = getIndexFromFieldIndex(fieldValue);
             radioField = fieldLayout.findElement(
-                    By.xpath(xpathFormat(XPATH_RELATIVE_RADIO_FIELD_CHOICE_INDEX, index)));
+                    By.xpath(xpathFormat(XPATH_RELATIVE_RADIO_FIELD_CHOICE_INDEX + "/parent::div/label", index)));
         } else {
             radioField = fieldLayout.findElement(
-                    By.xpath(xpathFormat(XPATH_RELATIVE_RADIO_FIELD_CHOICE_LABEL, fieldValue)));
+                    By.xpath(xpathFormat(XPATH_RELATIVE_RADIO_FIELD_CHOICE_LABEL + "/parent::div/label", fieldValue)));
         }
         radioField.click();
     }

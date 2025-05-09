@@ -249,13 +249,13 @@ public class BaseFixtureTest extends AbstractTest {
 
     @Test
     public void testGetRandomString() {
-        assertTrue(fixture.getRandomString(7).length() == 7);
+        assertEquals(fixture.getRandomString(7).length(), 7);
     }
 
     @Test
     public void testGetRandomAlphabetString() {
         String alphabeticString = fixture.getRandomAlphabetString(9);
-        assertTrue(alphabeticString.length() == 9);
+        assertEquals(alphabeticString.length(), 9);
         assertTrue(StringUtils.isAlpha(alphabeticString));
     }
 
