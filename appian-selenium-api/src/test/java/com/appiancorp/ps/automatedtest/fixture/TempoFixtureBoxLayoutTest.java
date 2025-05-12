@@ -168,8 +168,6 @@ public class TempoFixtureBoxLayoutTest extends AbstractLoginTest<TempoFixture> {
     public void testBoxIsPresent() throws Exception {
         assertTrue(fixture.verifyBoxIsPresent("Box"));
         assertTrue(fixture.verifyBoxIsNotPresent("Fake Box"));
-
-        //assertTrue(fixture.verifyBoxIsPresent("Non-Collapsible Box")); //TODO
     }
 
     @Test

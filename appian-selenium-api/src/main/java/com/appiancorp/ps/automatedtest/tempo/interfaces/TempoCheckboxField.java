@@ -68,11 +68,16 @@ public class TempoCheckboxField extends AbstractTempoField {
     public String getXpathForCheckbox(boolean isContains, String... params) {
         String fieldValue = getParam(0, params);
 
+        String containsFilter = "";
+        if (isContains) {
+            containsFilter = "//input";
+        }
+
         if (isFieldIndex(fieldValue)) {
             int index = getIndexFromFieldIndex(fieldValue);
-            return xpathFormat(XPATH_RELATIVE_CHECKBOX_FIELD_CHOICE_INDEX, index);
+            return xpathFormat(XPATH_RELATIVE_CHECKBOX_FIELD_CHOICE_INDEX + containsFilter, index);
         } else {
-            return xpathFormat(XPATH_RELATIVE_CHECKBOX_FIELD_CHOICE_LABEL, fieldValue);
+            return xpathFormat(XPATH_RELATIVE_CHECKBOX_FIELD_CHOICE_LABEL + containsFilter, fieldValue);
         }
     }
 
