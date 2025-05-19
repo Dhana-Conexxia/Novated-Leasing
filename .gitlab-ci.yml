@@ -80,3 +80,4 @@ Create Release:
     description: 'Release of appian-selenium-api'
   rules:
     - if: '$CI_PIPELINE_SOURCE == "trigger"'
+    - when: never
