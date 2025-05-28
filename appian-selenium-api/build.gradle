@@ -149,7 +149,6 @@ task addSupportForNewAppianVersion() {
     doLast {
         addNewVersionToMetadataJson(newVersion)
         updateSiteVersionInAbstractTestClass(newVersion)
-        updateSiteVersionInPipeline(newVersion)
     }
 }
 
@@ -225,7 +224,7 @@ def addNewVersionToMetadataJson(newVersionNumber) {
     def metadataFilePath = "${projectDir}/src/main/resources/metadata.json"
     def oldMetadata = file(metadataFilePath)
     def parsedJson = new groovy.json.JsonSlurper().parseText(oldMetadata.text)
-    if (!parsedJson.appianVersions.version.contains(version)) {
+    if (!parsedJson.appianVersions.version.contains(newVersionNumber)) {
         parsedJson.appianVersions << newReleaseMetadata.content
         new File("${projectDir}/src/main/resources/metadata.json").text = new groovy.json.JsonBuilder(parsedJson).toPrettyString()
     }
@@ -234,13 +233,6 @@ def addNewVersionToMetadataJson(newVersionNumber) {
 def updateSiteVersionInAbstractTestClass(newVersionNumber) {
     def path = "${projectDir}/src/test/java/com/appiancorp/ps/automatedtest/test/AbstractTest.java"
     def updatedClass = file(path).text.replaceAll("protected static String TEST_SITE_VERSION.*", "protected static String TEST_SITE_VERSION = System.getenv(\"version\") == null ? \"${newVersionNumber}\" : System.getenv(\"version\");")
-    new File(path).text = updatedClass
-}
-
-def updateSiteVersionInPipeline(newVersionNumber) {
-    def versionMatch = "\"\\d\\d\\.\\d\""
-    def path = "${projectDir}/../.gitlab-ci.yml"
-    def updatedClass = file(path).text.replaceAll("value: ${versionMatch}", "value: \"${newVersionNumber}\"")
     new File(path).text = updatedClass
 }
 
