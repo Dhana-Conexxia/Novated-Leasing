@@ -145,3 +145,20 @@ task releaseCucumberForAppian(type: Zip) {
     dependsOn setReleaseVersion, clean, build, zipCucumberForAppian
     build.mustRunAfter('clean')
 }
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--plugin', 'junit:results/cucumber-junit-report.xml', '--glue', 'com.appiancorp.ps.cucumber', 'src/test/resources']
+        }
+    }
+}

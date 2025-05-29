@@ -3,6 +3,7 @@ package com.appiancorp.ps.cucumber.fixtures;
 import com.appiancorp.ps.automatedtest.common.Settings;
 import com.appiancorp.ps.automatedtest.fixture.BaseFixture;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.After;
 
 public class CucumberBaseFixture {
     private static BaseFixture fixture = new BaseFixture();
@@ -228,6 +229,11 @@ public class CucumberBaseFixture {
 
     public static Settings getSettings() {
         return fixture.getSettings();
+    }
+
+    @After
+    public void tearDownHook() {
+        fixture.tearDown();
     }
 
 }
