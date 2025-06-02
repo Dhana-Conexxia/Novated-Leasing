@@ -2201,7 +2201,10 @@
                 
             ],
             "byConstants": [
-                
+                {
+                    "label": "xpathRelativeSectionValidationMessageSpecificValue",
+                    "value": "//div[contains(@class,'MessageLayout---message MessageLayout---error')]/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                }
             ]
         }
     ]
