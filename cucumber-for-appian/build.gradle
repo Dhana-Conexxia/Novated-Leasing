@@ -116,12 +116,6 @@ task copyScriptsIntoFinalReleaseDirectory(type: Copy) {
     into cucumberForAppianBuildDir
 }
 
-task copyDriversIntoFinalReleaseDirectory(type: Copy) {
-    dependsOn build
-    from "${projectDir}/../shared/lib/drivers/"
-    into "${cucumberForAppianBuildDir}/lib/drivers/"
-}
-
 /**
  * ------------------------Release Tasks-----------------------
  */
@@ -131,7 +125,7 @@ task setReleaseVersion() {
 }
 
 task zipCucumberForAppian(type: Zip) {
-    dependsOn clean, build, copyScriptsIntoFinalReleaseDirectory, copyTestExampleIntoFinalReleaseDirectory, copyDriversIntoFinalReleaseDirectory
+    dependsOn clean, build, copyScriptsIntoFinalReleaseDirectory, copyTestExampleIntoFinalReleaseDirectory
     from cucumberForAppianBuildDir
     version = project["version"]
     archiveFileName = "${project.name}.zip"
