@@ -7,7 +7,7 @@ echo "Setting resources to be $RESOURCES"
 
 TARGET=$(realpath "$CURRENT_DIR/target")
 DRIVERS="$RESOURCES/lib/drivers"
-CUSTOM_PROPERTIES="$RESOURCES/src/main/resources/configs/custom.properties"
+CUSTOM_PROPERTIES="$RESOURCES/configs/custom.properties"
 
 function sed-populate-key {
   sed -i '' "s#$1=.*#$1=$2#" $CUSTOM_PROPERTIES
