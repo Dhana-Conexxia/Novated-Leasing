@@ -2,11 +2,13 @@
 
 CURRENT_DIR=`dirname $0`
 
-TARGET=$(realpath "./")
-RESOURCES="$TARGET"
+RESOURCES=$(realpath $CURRENT_DIR)
+echo "Setting resources to be $RESOURCES"
+
+TARGET=$(realpath "$CURRENT_DIR/target")
 CUSTOM_PROPERTIES="$RESOURCES/configs/custom.properties"
 
-sed-populate-key(){
+sed-populate-key() {
   sed -i "s#$1=.*#$1=$2#" $CUSTOM_PROPERTIES
 }
 

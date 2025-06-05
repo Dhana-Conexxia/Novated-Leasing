@@ -8,11 +8,11 @@
                 },
                 {
                     "label": "xpathAbsoluteMenuLink",
-                    "value": "//a[starts-with(@class, 'appian-menu-item') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[starts-with(@class, 'appian-menu-item') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteSitePageLink",
-                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/descendant::a"
+                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/descendant::a"
                 },
                 {
                     "label": "xpathAbsoluteSiteLogoutLink",
@@ -52,7 +52,7 @@
                 },
                 {
                     "label": "xpathAbsoluteNewsItem",
-                    "value": "//div[starts-with(@class, 'appian-feed-entry-message') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//div[starts-with(@class, 'appian-feed-entry-message') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemMoreInfoLink",
@@ -60,19 +60,19 @@
                 },
                 {
                     "label": "xpathConcatNewsItemMoreInfoLabel",
-                    "value": "/following-sibling::table/descendant::td[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %2$s)]"
+                    "value": "/following-sibling::table/descendant::td[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %2$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemMoreInfoValue",
-                    "value": "/following-sibling::table/descendant::td[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %2$s)]"
+                    "value": "/following-sibling::table/descendant::td[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %2$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemRecordTag",
-                    "value": "/parent::div/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %2$s)]"
+                    "value": "/parent::div/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %2$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemComment",
-                    "value": "/parent::div/descendant::div[starts-with(@class, 'appian-feed-entry-message') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %2$s)]"
+                    "value": "/parent::div/descendant::div[starts-with(@class, 'appian-feed-entry-message') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %2$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemDeleteLink",
@@ -84,19 +84,19 @@
                 },
                 {
                     "label": "xpathAbsoluteTaskLink",
-                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteTaskDeadline",
-                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div[contains(@class, 'metadata')]/descendant::span[contains(@title, 'deadline')]/span[text() = %2$s]"
+                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div[contains(@class, 'metadata')]/descendant::span[contains(@title, 'deadline')]/span[text() = %2$s]"
                 },
                 {
                     "label": "xpathAbsoluteTaskReportLink",
-                    "value": "//a[span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//a[span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteSocialTaskItem",
-                    "value": "//div[starts-with(@class, 'appian-feed-entry') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//div[starts-with(@class, 'appian-feed-entry') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathConcatSocialTaskItemComment",
@@ -120,7 +120,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeLink",
-                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/view/all') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/view/all') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterDropdown",
@@ -128,7 +128,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterLabel",
-                    "value": "//ol[@class='facetgroup']/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//ol[@class='facetgroup']/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterValue",
@@ -140,7 +140,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordLink",
-                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordIndexLink",
@@ -148,19 +148,19 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordViewLink",
-                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/')]/span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/')]/span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordRelatedActionLink",
-                    "value": "//a[(starts-with(@class, 'aui-ActionLink') or starts-with(@class, 'gwt-Anchor')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[(starts-with(@class, 'aui-ActionLink') or starts-with(@class, 'gwt-Anchor')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteReportLink",
-                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@class, 'appian-feed-entry-author') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteActionLink",
-                    "value": "//a[starts-with(@class, 'aui-ActionLink') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[starts-with(@class, 'aui-ActionLink') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathConcatActionStar",
@@ -168,7 +168,7 @@
                 },
                 {
                     "label": "xpathAbsoluteActionsAppFilterLink",
-                    "value": "//ol[@class='facetgroup']/descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//ol[@class='facetgroup']/descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteFormTitle",
@@ -180,7 +180,7 @@
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutLabel",
-                    "value": "//*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::*/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')]"
+                    "value": "//*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::*/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutIndex",
@@ -192,7 +192,7 @@
                 },
                 {
                     "label": "xpathAbsoluteButton",
-                    "value": "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s) and not(contains(@class, 'button-disabled'))]"
+                    "value": "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s) and not(contains(@class, 'button-disabled'))]"
                 },
                 {
                     "label": "xpathRelativeButton",
@@ -200,11 +200,11 @@
                 },
                 {
                     "label": "xpathAbsoluteAcceptButton",
-                    "value": "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s) and not(contains(@class, 'button-disabled'))]"
+                    "value": "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s) and not(contains(@class, 'button-disabled'))]"
                 },
                 {
                     "label": "xpathAbsoluteTextFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathAbsoluteTextFieldIndex",
@@ -216,7 +216,7 @@
                 },
                 {
                     "label": "xpathAbsoluteImageFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::img"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::img"
                 },
                 {
                     "label": "xpathAbsoluteImageFieldIndex",
@@ -228,7 +228,7 @@
                 },
                 {
                     "label": "xpathAbsoluteIntegerFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/div/input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/div/input"
                 },
                 {
                     "label": "xpathRelativeIntegerFieldInput",
@@ -236,7 +236,7 @@
                 },
                 {
                     "label": "xpathAbsoluteParagraphFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::textarea"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::textarea"
                 },
                 {
                     "label": "xpathAbsoluteParagraphFieldIndex",
@@ -248,7 +248,7 @@
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input[type='checkbox']"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input[type='checkbox']"
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldIndex",
@@ -256,7 +256,7 @@
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceLabel",
-                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/preceding-sibling::input"
+                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/preceding-sibling::input"
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceIndex",
@@ -272,15 +272,15 @@
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldOption",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/preceding-sibling::input[@type='checkbox']"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/preceding-sibling::input[@type='checkbox']"
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathRelativeRadioFieldChoiceLabel",
-                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/preceding-sibling::input"
+                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/preceding-sibling::input"
                 },
                 {
                     "label": "xpathRelativeRadioFieldChoiceIndex",
@@ -296,11 +296,11 @@
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldOption",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/preceding-sibling::input[@type='radio']"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/preceding-sibling::input[@type='radio']"
                 },
                 {
                     "label": "xpathAbsoluteDropdownFieldIndex",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::div/select"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::div/select"
                 },
                 {
                     "label": "xpathRelativeDropdownFieldInput",
@@ -308,7 +308,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDateFieldInput",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-DateInput-TextBox')]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-DateInput-TextBox')]"
                 },
                 {
                     "label": "xpathRelativeDateFieldPlaceholder",
@@ -320,7 +320,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDatetimeFieldDateInput",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-DateInput-TextBox')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-DateInput-TextBox')]"
                 },
                 {
                     "label": "xpathRelativeDatetimeFieldDatePlaceholder",
@@ -332,7 +332,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDatetimeFieldTimeInput",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-TimeInput-TextBox')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input[contains(@class, 'aui-TimeInput-TextBox')]"
                 },
                 {
                     "label": "xpathRelativeDatetimeFieldTimePlaceholder",
@@ -344,7 +344,7 @@
                 },
                 {
                     "label": "xpathAbsoluteFileUploadFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span/following-sibling::div/descendant::input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathAbsoluteFileUploadFieldIndex",
@@ -368,7 +368,7 @@
                 },
                 {
                     "label": "xpathAbsolutePickerLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::span"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::span"
                 },
                 {
                     "label": "xpathRelativePickerInput",
@@ -376,7 +376,7 @@
                 },
                 {
                     "label": "xpathAbsolutePickerSuggestion",
-                    "value": "//div[contains(@class, 'SuggestBoxPopup')]/descendant::p[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //div[contains(@class, 'SuggestBoxPopup')]/descendant::h2[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[contains(@class, 'SuggestBoxPopup')]/descendant::p[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //div[contains(@class, 'SuggestBoxPopup')]/descendant::h2[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativePickerSelection",
@@ -384,7 +384,7 @@
                 },
                 {
                     "label": "xpathRelativePickerSpecificSelection",
-                    "value": "/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "/descendant::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativePickerSelectionRemoveLink",
@@ -392,7 +392,7 @@
                 },
                 {
                     "label": "xpathRelativePickerSpecificSelectionRemoveLink",
-                    "value": ".//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/following-sibling::a"
+                    "value": ".//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/following-sibling::a"
                 },
                 {
                     "label": "xpathRelativePickerSuggestBox",
@@ -400,7 +400,7 @@
                 },
                 {
                     "label": "xpathAbsoluteMilestoneFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(text(), 'Step:')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(text(), 'Step:')]"
                 },
                 {
                     "label": "xpathAbsoluteMilestoneFieldIndex",
@@ -416,7 +416,7 @@
                 },
                 {
                     "label": "xpathRelativeMilestoneStep",
-                    "value": ".//descendant::*[starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": ".//descendant::*[starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativeMilestoneStepIndex",
@@ -424,11 +424,11 @@
                 },
                 {
                     "label": "xpathAbsoluteLink",
-                    "value": "//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //a//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/.."
+                    "value": "//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //a//*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/.."
                 },
                 {
                     "label": "xpathAbsoluteLinkFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div/a"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div/a"
                 },
                 {
                     "label": "xpathAbsoluteLinkFieldIndex",
@@ -444,11 +444,11 @@
                 },
                 {
                     "label": "xpathAbsoluteGridByLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::table/ancestor::div[contains(@class, 'aui_FieldLayout_InputContainer')][position()=1]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::table/ancestor::div[contains(@class, 'aui_FieldLayout_InputContainer')][position()=1]"
                 },
                 {
                     "label": "xpathRelativeColumnLabelCount",
-                    "value": "./descendant::thead/descendant::th[descendant::*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]]/preceding-sibling::th"
+                    "value": "./descendant::thead/descendant::th[descendant::*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]]/preceding-sibling::th"
                 },
                 {
                     "label": "xpathRelativeGridCell",
@@ -500,7 +500,7 @@
                 },
                 {
                     "label": "xpathRelativeGridColumnLink",
-                    "value": ".//thead//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": ".//thead//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathRelativeGridSelectAllColumn",
@@ -516,15 +516,15 @@
                 },
                 {
                     "label": "xpathAbsoluteSectionFieldLayout",
-                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::*[starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%2$s)]/parent::*/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')]"
+                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::*[starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%2$s)]/parent::*/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')]"
                 },
                 {
                     "label": "xpathAbsoluteSectionFieldLayoutIndex",
-                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')][%2$d]"
+                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class, 'aui_FieldLayout_InputContainer')][%2$d]"
                 },
                 {
                     "label": "xpathRelativeSectionValidationMessageSpecificValue",
-                    "value": "/descendant::p[contains(@class, 'validationMessage') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "/descendant::p[contains(@class, 'validationMessage') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathRelativeSectionValidationMessage",
@@ -532,7 +532,7 @@
                 },
                 {
                     "label": "xpathAbsoluteSectionLayout",
-                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'aui-Section')]"
+                    "value": "//h3[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'aui-Section')]"
                 },
                 {
                     "label": "xpathRelativeSectionToggle",
@@ -548,7 +548,7 @@
                 },
                 {
                     "label": "xpathRelativeFieldValidationMessageSpecificValue",
-                    "value": "/ancestor::div[contains(@class, 'aui_FieldLayout')][position()=1]/descendant::p[contains(@class, 'component_error') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "/ancestor::div[contains(@class, 'aui_FieldLayout')][position()=1]/descendant::p[contains(@class, 'component_error') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathRelativeFieldValidationMessage",
@@ -556,7 +556,7 @@
                 },
                 {
                     "label": "xpathAbsoluteChartLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteSaveChanges",
@@ -657,7 +657,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteRecordLink",
-                    "value": "//a[contains(@href, '/tempo/records/item/') and contains(@href, '/view/summary') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@href, '/tempo/records/item/') and contains(@href, '/view/summary') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordIndexLink",
@@ -669,7 +669,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordGridColumnSortLink",
-                    "value": "//div[contains(@class, 'DataGrid-Table')]/descendant::table/thead//a[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]"
+                    "value": "//div[contains(@class, 'DataGrid-Table')]/descendant::table/thead//a[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]"
                 },
                 {
                     "label": "xpathAbsoluteRecordGridNavigationFirst",
@@ -697,11 +697,11 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteRecordLink",
-                    "value": "//a[contains(@href, '/view/summary') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]"
+                    "value": "//a[contains(@href, '/view/summary') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordViewLink",
-                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/')]/span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //a[contains(@href, '/sites/') and contains(@href, '/view/') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@href, '/tempo/records/type') and contains(@href, '/item/')]/span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //a[contains(@href, '/sites/') and contains(@href, '/view/') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteLoginBox",
@@ -757,7 +757,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordRelatedActionLink",
-                    "value": "//a[starts-with(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[starts-with(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteFormTitle",
@@ -769,19 +769,19 @@
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutLabel",
-                    "value": "//*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
+                    "value": "//*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutPlaceholder",
-                    "value": "//*[starts-with(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
+                    "value": "//*[starts-with(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutInstructions",
-                    "value": "//div[contains(@class, FieldLayout---field_instructions) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
+                    "value": "//div[contains(@class, FieldLayout---field_instructions) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutTooltip",
-                    "value": "//*[local-name()='svg']/child::*[local-name()='desc' and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]"
+                    "value": "//*[local-name()='svg']/child::*[local-name()='desc' and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutIndex",
@@ -793,7 +793,7 @@
                 },
                 {
                     "label": "xpathAbsoluteTextFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathAbsoluteTextFieldIndex",
@@ -805,7 +805,7 @@
                 },
                 {
                     "label": "xpathAbsoluteLinkFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::p[contains(@class, 'LinkGroup')]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::p[contains(@class, 'LinkGroup')]"
                 },
                 {
                     "label": "xpathAbsoluteLinkFieldIndex",
@@ -817,7 +817,7 @@
                 },
                 {
                     "label": "xpathAbsoluteBarcodeFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathAbsoluteBarcodeFieldIndex",
@@ -829,7 +829,7 @@
                 },
                 {
                     "label": "xpathAbsoluteImageFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::img"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::img"
                 },
                 {
                     "label": "xpathAbsoluteImageFieldIndex",
@@ -841,7 +841,7 @@
                 },
                 {
                     "label": "xpathAbsoluteIntegerFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/div/input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/div/input"
                 },
                 {
                     "label": "xpathRelativeIntegerFieldInput",
@@ -849,7 +849,7 @@
                 },
                 {
                     "label": "xpathAbsoluteParagraphFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::textarea"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::textarea"
                 },
                 {
                     "label": "xpathAbsoluteParagraphFieldIndex",
@@ -861,7 +861,7 @@
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class,'CheckboxGroup---choice_pair')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class,'CheckboxGroup---choice_pair')]"
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldIndex",
@@ -869,7 +869,7 @@
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceLabel",
-                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/parent::div[contains(@class,'CheckboxGroup---choice_pair')]"
+                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/parent::div[contains(@class,'CheckboxGroup---choice_pair')]"
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceIndex",
@@ -885,11 +885,11 @@
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldOption",
-                    "value": "//div[contains(@class,'CheckboxGroup---choice_pair')]//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//div[contains(@class,'CheckboxGroup---choice_pair')]//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldLabel",
-                    "value": "//span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::*/following-sibling::*/div[@class='RadioButtonGroup---choice_group']/div"
+                    "value": "//span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::*/following-sibling::*/div[@class='RadioButtonGroup---choice_group']/div"
                 },
                 {
                     "label": "xpathRelativeRadioButtonGroup",
@@ -901,11 +901,11 @@
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldOption",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and parent::div[contains(@class,'RadioButtonGroup---choice_pair')]]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and parent::div[contains(@class,'RadioButtonGroup---choice_pair')]]"
                 },
                 {
                     "label": "xpathAbsoluteDropdownFieldIndex",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div/div"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div/div"
                 },
                 {
                     "label": "xpathRelativeDropdownFieldInput",
@@ -933,7 +933,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDateFieldInput",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'DatePickerWidget---text')]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'DatePickerWidget---text')]"
                 },
                 {
                     "label": "xpathRelativeDateFieldPlaceholder",
@@ -945,7 +945,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDatetimeFieldDateInput",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'DatePickerWidget---text')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'DatePickerWidget---text')]"
                 },
                 {
                     "label": "xpathRelativeDatetimeFieldDatePlaceholder",
@@ -957,7 +957,7 @@
                 },
                 {
                     "label": "xpathAbsoluteDatetimeFieldTimeInput",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'TimeWidget---dropdown_value')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input[contains(@class, 'TimeWidget---dropdown_value')]"
                 },
                 {
                     "label": "xpathRelativeDatetimeFieldTimePlaceholder",
@@ -969,7 +969,7 @@
                 },
                 {
                     "label": "xpathAbsoluteFileUploadFieldLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::input"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::input"
                 },
                 {
                     "label": "xpathAbsoluteFileUploadFieldIndex",
@@ -993,7 +993,7 @@
                 },
                 {
                     "label": "xpathAbsolutePickerLabel",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div"
                 },
                 {
                     "label": "xpathRelativePickerInput",
@@ -1001,11 +1001,11 @@
                 },
                 {
                     "label": "xpathAbsolutePickerSuggestion",
-                    "value": "//div[contains(@class,'TetherComponent---sailcontents') and contains(@class,'PickerWidget---picker_suggestions')]//p[not(p) and not(contains(text(),'Searching'))][descendant-or-self::*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]]"
+                    "value": "//div[contains(@class,'TetherComponent---sailcontents') and contains(@class,'PickerWidget---picker_suggestions')]//p[not(p) and not(contains(text(),'Searching'))][descendant-or-self::*[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]]"
                 },
                 {
                     "label": "xpathAbsolutePickerSuggestionContains",
-                    "value": "//div[contains(@class,'TetherComponent---sailcontents') and contains(@class,'PickerWidget---picker_suggestions')]//p[not(p) and not(contains(text(),'Searching'))][descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div[contains(@class,'TetherComponent---sailcontents') and contains(@class,'PickerWidget---picker_suggestions')]//p[not(p) and not(contains(text(),'Searching'))][descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 },
                 {
                     "label": "xpathRelativePickerSelection",
@@ -1013,7 +1013,7 @@
                 },
                 {
                     "label": "xpathRelativePickerSpecificSelection",
-                    "value": ".//span[contains(@class,'PickerTokenWidget---label') and (contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) or child::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)])]"
+                    "value": ".//span[contains(@class,'PickerTokenWidget---label') and (contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) or child::a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)])]"
                 },
                 {
                     "label": "xpathRelativePickerSelectionRemoveLink",
@@ -1053,7 +1053,7 @@
                 },
                 {
                     "label": "xpathAbsoluteGridByLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::table[contains(@class, '---table')]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::table[contains(@class, '---table')]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
                 },
                 {
                     "label": "xpathRowSelected",
@@ -1093,7 +1093,7 @@
                 },
                 {
                     "label": "xpathRelativeGridColumnLink",
-                    "value": ".//th[descendant::div[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": ".//th[descendant::div[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathRelativeGridSelectAllColumn",
@@ -1109,15 +1109,15 @@
                 },
                 {
                     "label": "xpathAbsoluteSectionFieldLayout",
-                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]/parent::div//div[contains(@class, 'FieldLayout---field_layout') and descendant::*[(self::span or self::label) and contains(@class,'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%2$s)]]"
+                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div//div[contains(@class, 'FieldLayout---field_layout') and descendant::*[(self::span or self::label) and contains(@class,'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%2$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteSectionFieldLayoutIndex",
-                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]/parent::div//div[contains(@class, 'FieldLayout---field_layout')][%2$d]"
+                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div//div[contains(@class, 'FieldLayout---field_layout')][%2$d]"
                 },
                 {
                     "label": "xpathRelativeSectionValidationMessageSpecificValue",
-                    "value": "//div[@class='MessageLayout---message MessageLayout---error' and @role='alert']/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div[@class='MessageLayout---message MessageLayout---error' and @role='alert']/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 },
                 {
                     "label": "xpathRelativeSectionValidationMessage",
@@ -1125,7 +1125,7 @@
                 },
                 {
                     "label": "xpathAbsoluteSectionLayout",
-                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]/parent::div"
+                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div"
                 },
                 {
                     "label": "xpathRelativeSectionToggle",
@@ -1145,7 +1145,7 @@
                 },
                 {
                     "label": "xpathRelativeFieldValidationMessageSpecificValue",
-                    "value": "/descendant::div[contains(@class, 'FieldLayout---field_error') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "/descendant::div[contains(@class, 'FieldLayout---field_error') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathRelativeFieldValidationMessage",
@@ -1161,7 +1161,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordGridColumnSortLink",
-                    "value": "//table[contains(@class, '---table')]/thead//div[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]//parent::th"
+                    "value": "//table[contains(@class, '---table')]/thead//div[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]//parent::th"
                 },
                 {
                     "label": "xpathAbsoluteRecordGridNavigationFirst",
@@ -1181,11 +1181,11 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordLink",
-                    "value": "//a[contains(@href, '/view/summary')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]"
+                    "value": "//a[contains(@href, '/view/summary')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordViewLink",
-                    "value": "//a[@role='tab'][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[@role='tab'][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteSiteLogoutLink",
@@ -1201,19 +1201,19 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterLabel",
-                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value')]/descendant::span[contains(@class, 'DropdownWidget---inline_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]"
+                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value')]/descendant::span[contains(@class, 'DropdownWidget---inline_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterValue",
-                    "value": "//div[contains(@class,'DropdownWidget---tether_dropdown')]//li/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[contains(@class,'DropdownWidget---tether_dropdown')]//li/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterClear",
-                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value')]/descendant::span[contains(@class, 'DropdownWidget---inline_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]/following-sibling::a[contains(@class, 'DropdownWidget---input_clear_link')]"
+                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value')]/descendant::span[contains(@class, 'DropdownWidget---inline_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]/following-sibling::a[contains(@class, 'DropdownWidget---input_clear_link')]"
                 },
                 {
                     "label": "xpathAbsoluteAcceptButton",
-                    "value": "//div[contains(@class, 'MessageLayout')]/descendant::button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s) and not(contains(@class, 'button-disabled'))]"
+                    "value": "//div[contains(@class, 'MessageLayout')]/descendant::button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s) and not(contains(@class, 'button-disabled'))]"
                 },
                 {
                     "label": "xpathClickToPost",
@@ -1309,7 +1309,7 @@
                 },
                 {
                     "label": "xpathAbsoluteNewsFilterLink",
-                    "value": "//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathConcatNewsItemPostedAtLink",
@@ -1329,7 +1329,7 @@
                 },
                 {
                     "label": "xpathUserProfileHoverCardUserName",
-                    "value": "//div[@class='popupContent']/descendant::p[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//div[@class='popupContent']/descendant::p[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 },
                 {
                     "label": "xpathTaskNewest",
@@ -1376,7 +1376,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordViewLink",
-                    "value": "//div[contains(@class,'TabButtonWidget---tab_label')][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[contains(@class,'TabButtonWidget---tab_label')][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativeFileUploadFieldFile",
@@ -1400,7 +1400,7 @@
                 },
                 {
                     "label": "xpathRelativeSiteNameMenuLink",
-                    "value": "//span[@class='MenuItem---primary_text' and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//span[@class='MenuItem---primary_text' and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAuthenticationPage",
@@ -1408,7 +1408,7 @@
                 },
                 {
                     "label": "xpathPageContainsText",
-                    "value": "//*[text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %s)]]"
+                    "value": "//*[text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %s)]]"
                 }
             ],
             "locales": [
@@ -1449,11 +1449,11 @@
                 },
                 {
                     "label": "xpathAbsoluteVideo",
-                    "value": "//video[contains(translate(@src,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//video[contains(translate(@src,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteWebContent",
-                    "value": "//iframe[contains(translate(@src,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div[contains(@class, 'WebContentWidget---webcontent')] | //a[contains(translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//iframe[contains(translate(@src,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div[contains(@class, 'WebContentWidget---webcontent')] | //a[contains(translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteIconLinkField",
@@ -1461,15 +1461,15 @@
                 },
                 {
                     "label": "xpathAbsoluteIconLinkFieldAltText",
-                    "value": "(//a[descendant::*[contains(@class, 'IconWidget---svg')] and descendant::*[contains(local-name(), 'desc') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]])"
+                    "value": "(//a[descendant::*[contains(@class, 'IconWidget---svg')] and descendant::*[contains(local-name(), 'desc') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]])"
                 },
                 {
                     "label": "xpathAbsoluteButtonTooltip",
-                    "value": "//button[.//descendant::span[contains(@class, 'accessibilityhidden') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//button[.//descendant::span[contains(@class, 'accessibilityhidden') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteMenuWidgetItemText",
-                    "value": "//li[@class='MenuWidgetItem---default_direction' and .//descendant::span[contains(@class, 'MenuItem---primary_text') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//li[@class='MenuWidgetItem---default_direction' and .//descendant::span[contains(@class, 'MenuItem---primary_text') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteMenuWidgetItem",
@@ -1485,19 +1485,19 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteSectionFieldLayout",
-                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]/parent::div//*[(self::span or self::label) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%2$s)]/parent::div/parent::div"
+                    "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div//*[(self::span or self::label) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%2$s)]/parent::div/parent::div"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutLabel",
-                    "value": "//*[(self::label or self::span) and contains(@class, 'FieldLayout---field_label') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/parent::div"
+                    "value": "//*[(self::label or self::span) and contains(@class, 'FieldLayout---field_label') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/parent::div"
                 },
                 {
                     "label": "xpathAbsoluteCard",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div[contains(@class,'CardLayout')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div[contains(@class,'CardLayout')]"
                 },
                 {
                     "label": "xpathAbsoluteMilestoneFieldLabel",
-                    "value": "//ol[contains(@class, 'MilestoneWidget---milestone')]/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]/parent::div/parent::div"
+                    "value": "//ol[contains(@class, 'MilestoneWidget---milestone')]/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]/parent::div/parent::div"
                 },
                 {
                     "label": "xpathConcatParentFieldLayout",
@@ -1533,7 +1533,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteBox",
-                    "value": "//div[(contains(@class, 'BoxLayout---box_label') or contains(@class, 'BoxLayout---box_heading'))and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(concat(' ', @class, ' '), ' BoxLayout---box ')]"
+                    "value": "//div[(contains(@class, 'BoxLayout---box_label') or contains(@class, 'BoxLayout---box_heading'))and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(concat(' ', @class, ' '), ' BoxLayout---box ')]"
                 },
                 {
                     "label": "xpathRelativeBoxHeader",
@@ -1589,7 +1589,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteMenuLink",
-                    "value": "//div[starts-with(@class, 'SiteMenuTab') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[starts-with(@class, 'SiteMenuTab') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 }
             ],
             "locales": [
@@ -1601,7 +1601,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteRecordTypeLink",
-                    "value": "//div[contains(@class, 'SideBySideGroup---side_by_side SideBySideGroup---default_direction SideBySideGroup---middle') and descendant::span[ contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div[contains(@class, 'SideBySideGroup---side_by_side SideBySideGroup---default_direction SideBySideGroup---middle') and descendant::span[ contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 },
                 {
                     "label": "xpathRelativeGaugeField",
@@ -1617,7 +1617,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldOption",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and parent::div[contains(@class,'RadioSelect---choice_pair')]]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and parent::div[contains(@class,'RadioSelect---choice_pair')]]"
                 }
             ],
             "locales": [
@@ -1629,7 +1629,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteCard",
-                    "value": "//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div[contains(@class,'CardLayout')] | //span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div[contains(@class,'CardLayout')]"
+                    "value": "//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div[contains(@class,'CardLayout')] | //span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div[contains(@class,'CardLayout')]"
                 },
                 {
                     "label": "xpathAbsoluteWorkingIndicator",
@@ -1641,35 +1641,35 @@
                 },
                 {
                     "label": "xpathAbsoluteDocumentImageLinkAltText",
-                    "value": "//a[((contains(@class, 'DocumentImage---image_link')) or (contains(@class, 'DocumentImage---image') and @href)) and (descendant::img[contains(translate(@alt,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] or descendant::span[contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)])]"
+                    "value": "//a[((contains(@class, 'DocumentImage---image_link')) or (contains(@class, 'DocumentImage---image') and @href)) and (descendant::img[contains(translate(@alt,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] or descendant::span[contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)])]"
                 },
                 {
                     "label": "xpathAbsoluteColumnChartIndex",
-                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='rect' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-column-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
+                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='rect' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-column-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
                 },
                 {
                     "label": "xpathAbsoluteBarChartIndex",
-                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='rect' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-bar-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
+                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='rect' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-bar-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
                 },
                 {
                     "label": "xpathAbsolutePieChartIndex",
-                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='path' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-pie-series')]])[%3$s]"
+                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='path' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-pie-series')]])[%3$s]"
                 },
                 {
                     "label": "xpathAbsoluteLineChartIndex",
-                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='path' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-line-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
+                    "value": "((//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s])[%2$s]/parent::*[contains(@class, 'FieldLayout')]/following-sibling::*/descendant::*[name()='path' and contains(@class, 'highcharts-point') and parent::*[name()='g' and contains(@class, 'highcharts-line-series') and not(contains(@class, 'highcharts-legend-item'))]])[%3$s]"
                 },
                 {
                     "label": "xpathRelativeConfirmationDialogHeader",
-                    "value": ".//div[contains(@aria-labelledby, 'ConfirmationBoxRichTextDisplayFieldheader')]/*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": ".//div[contains(@aria-labelledby, 'ConfirmationBoxRichTextDisplayFieldheader')]/*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativeConfirmationDialogMessage",
-                    "value": ".//div[contains(@aria-labelledby, 'ConfirmationBoxRichTextDisplayFieldbody')]/*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": ".//div[contains(@aria-labelledby, 'ConfirmationBoxRichTextDisplayFieldbody')]/*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteTagFieldLabel",
-                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)] and descendant::div[contains(@class,'TagGroup---tag_container')]]"
+                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)] and descendant::div[contains(@class,'TagGroup---tag_container')]]"
                 },
                 {
                     "label": "xpathAbsoluteTagFieldIndex",
@@ -1685,11 +1685,11 @@
                 },
                 {
                     "label": "xpathRelativeTagItemLabel",
-                    "value": ".//div[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": ".//div[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteTagItemLabel",
-                    "value": "//div[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//div[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteTagItemIndex",
@@ -1705,7 +1705,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteRecordTypeLink",
-                    "value": "//div[contains(@class, 'CardLayout---card_item') and descendant::a[ contains(@class, 'CardLayout---accessibilityhidden') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//div[contains(@class, 'CardLayout---card_item') and descendant::a[ contains(@class, 'CardLayout---accessibilityhidden') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 }
             ],
             "locales": [
@@ -1737,11 +1737,11 @@
                 },
                 {
                     "label": "xpathRelativeTagItemLabel",
-                    "value": ".//*[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": ".//*[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteTagItemLabel",
-                    "value": "//*[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": "//*[contains(@class,'TagItem---tag') and descendant::span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteTagItemIndex",
@@ -1761,7 +1761,7 @@
                 },
                 {
                     "label": "xpathAbsoluteStampFieldLabel",
-                    "value": "//span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::*/following-sibling::*/div/div[contains(@class, 'StampWidget---stamp')]"
+                    "value": "//span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::*/following-sibling::*/div/div[contains(@class, 'StampWidget---stamp')]"
                 },
                 {
                     "label": "xpathAbsoluteStampFieldIndex",
@@ -1777,11 +1777,11 @@
             "byConstants": [
                 {
                     "label": "xpathRelativeStampFieldText",
-                    "value": ".//descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": ".//descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteSignatureField",
-                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)] and descendant::div[contains(@class,'SignatureWidget---container')]]"
+                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::span[contains(@class, 'FieldLayout---field_label') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)] and descendant::div[contains(@class,'SignatureWidget---container')]]"
                 },
                 {
                     "label": "xpathAbsoluteSignatureFieldIndex",
@@ -1801,11 +1801,11 @@
                 },
                 {
                     "label": "xpathRelativeConfirmationDialogHeader",
-                    "value": "//span[contains(@id,'ConfirmationBoxRichTextDisplayFieldheader')]/../following-sibling::div[contains(@class, 'FieldLayout---input_below')]//*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//span[contains(@id,'ConfirmationBoxRichTextDisplayFieldheader')]/../following-sibling::div[contains(@class, 'FieldLayout---input_below')]//*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathRelativeConfirmationDialogMessage",
-                    "value": "//span[contains(@id,'ConfirmationBoxRichTextDisplayFieldbody')]/../following-sibling::div[contains(@class, 'FieldLayout---input_below')]//*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//span[contains(@id,'ConfirmationBoxRichTextDisplayFieldbody')]/../following-sibling::div[contains(@class, 'FieldLayout---input_below')]//*[1][contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordActionFieldIndexButton",
@@ -1817,11 +1817,11 @@
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutTooltip",
-                    "value": "//*[local-name()='svg' and contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]"
+                    "value": "//*[local-name()='svg' and contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]"
                 },
                 {
                     "label": "xpathAbsoluteIconLinkFieldAltText",
-                    "value": "(//a[descendant::*[contains(@class, 'IconWidget---svg') and contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]])"
+                    "value": "(//a[descendant::*[contains(@class, 'IconWidget---svg') and contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]])"
                 }
             ],
             "locales": [
@@ -1837,7 +1837,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRadioFieldOption",
-                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and parent::div[contains(@class,'RadioSelect---choice_pair') or contains(@class,'CardStyleRadioSelects---choice_pair')]]"
+                    "value": "//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and parent::div[contains(@class,'RadioSelect---choice_pair') or contains(@class,'CardStyleRadioSelects---choice_pair')]]"
                 }
             ],
             "locales": [
@@ -1853,7 +1853,7 @@
                 },
                 {
                     "label": "xpathAbsoluteSectionLayout",
-                    "value": "//div/*[self::h1 or self::h2 or self::h3 or self::h4][descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]/parent::div"
+                    "value": "//div/*[self::h1 or self::h2 or self::h3 or self::h4][descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div"
                 },
                 {
                     "label": "xpathRelativeMilestoneStepGeneral",
@@ -1873,7 +1873,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordRelatedActionLink",
-                    "value": "//a[contains(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//a[contains(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 }
             ],
             "locales": [
@@ -1894,7 +1894,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteCardChoice",
-                    "value": "//div[contains(@class,'CardLayout') and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | descendant::strong[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] and ancestor::div[contains(@class, 'FieldLayout') and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%2$s)]]]"
+                    "value": "//div[contains(@class,'CardLayout') and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | descendant::strong[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] and ancestor::div[contains(@class, 'FieldLayout') and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%2$s)]]]"
                 },
                 {
                     "label": "xpathCardChoiceSelected",
@@ -1902,7 +1902,7 @@
                 },
                 {
                     "label": "xpathAbsoluteCardChoiceField",
-                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::div[contains(@class, 'CardGroup---card_group')] and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'card choice')]]"
+                    "value": "//div[contains(@class, 'FieldLayout---field_layout') and descendant::div[contains(@class, 'CardGroup---card_group')] and descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),'card choice')]]"
                 }
             ],
             "locales": [
@@ -1914,11 +1914,11 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterLabel",
-                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value') or contains(@class, 'DateRangeWidget---dropdown_value')]/descendant::span[(contains(@class, 'DropdownWidget---inline_label') or contains(@class, 'DateRangeWidget---inline_label')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]"
+                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value') or contains(@class, 'DateRangeWidget---dropdown_value')]/descendant::span[(contains(@class, 'DropdownWidget---inline_label') or contains(@class, 'DateRangeWidget---inline_label')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterClear",
-                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value') or contains(@class, 'DateRangeWidget---dropdown_value')]/descendant::span[(contains(@class, 'DropdownWidget---inline_label') or contains(@class, 'DateRangeWidget---inline_label')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%s)]/following-sibling::a[contains(@class, 'DropdownWidget---input_clear_link') or contains(@class, 'DateRangeWidget---input_clear_link')]"
+                    "value": "//div[contains(@class, 'DropdownWidget---dropdown_value') or contains(@class, 'DateRangeWidget---dropdown_value')]/descendant::span[(contains(@class, 'DropdownWidget---inline_label') or contains(@class, 'DateRangeWidget---inline_label')) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%s)]/following-sibling::a[contains(@class, 'DropdownWidget---input_clear_link') or contains(@class, 'DateRangeWidget---input_clear_link')]"
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeDateRange",
@@ -1946,15 +1946,15 @@
             "byConstants": [
                 {
                     "label": "xpathRelativeGridColumnLink",
-                    "value": ".//th[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]]"
+                    "value": ".//th[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteRecordGridColumnSortLink",
-                    "value": "//table[contains(@class, '---table')]/thead//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]//ancestor::th"
+                    "value": "//table[contains(@class, '---table')]/thead//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]//ancestor::th"
                 },
                 {
                     "label": "xpathGeneralText",
-                    "value": "//div/descendant::*[text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div/descendant::*[text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 }
             ]
         },
@@ -2013,7 +2013,7 @@
                 },
                 {
                     "label": "xpathAbsoluteSitePageLink",
-                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and ancestor::nav[not(contains(@class, 'hidden'))]]/descendant::a"
+                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and ancestor::nav[not(contains(@class, 'hidden'))]]/descendant::a"
                 },
                 {
                     "label": "xpathAbsoluteSaveChanges",
@@ -2021,19 +2021,19 @@
                 },
                 {
                     "label": "xpathAbsoluteButton",
-                    "value": "//button[descendant::span[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]] and not(contains(@class, 'button-disabled'))]"
+                    "value": "//button[descendant::span[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]] and not(contains(@class, 'button-disabled'))]"
                 },
                 {
                     "label": "xpathRelativeSectionValidationMessageSpecificValue",
-                    "value": "//div[@class='MessageLayout---message MessageLayout---error']/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div[@class='MessageLayout---message MessageLayout---error']/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteRecordRelatedActionLink",
-                    "value": "//a[contains(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] | //button[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]] | //li[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//a[contains(@class, 'elements---global_a')]/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] | //button[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]] | //li[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 },
                 {
                     "label": "xpathAbsoluteAcceptButton",
-                    "value": "//button[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)] and not(contains(@class, 'button-disabled'))]"
+                    "value": "//button[descendant::span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)] and not(contains(@class, 'button-disabled'))]"
                 }
             ]
         },
@@ -2045,15 +2045,15 @@
             "byConstants": [
                 {
                     "label": "xpathRelativeSiteGroup",
-                    "value": "//button[@data-testid = 'VirtualNavigationMenuTab-pulldownButton' and descendant::span[text()[contains(translate(. ,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]]"
+                    "value": "//button[@data-testid = 'VirtualNavigationMenuTab-pulldownButton' and descendant::span[text()[contains(translate(. ,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]]"
                 },
                 {
                     "label": "xpathRelativeSitePageInGroup",
-                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and ancestor::section[@data-testid = 'VirtualNavigationMenuTab-popupMenuContents']]/descendant::a"
+                    "value": "//li[contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and ancestor::section[@data-testid = 'VirtualNavigationMenuTab-popupMenuContents']]/descendant::a"
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldLabel",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/following-sibling::div/descendant::div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]"
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldIndex",
@@ -2061,7 +2061,7 @@
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceLabel",
-                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]/parent::div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]"
+                    "value": ".//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]/parent::div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]"
                 },
                 {
                     "label": "xpathRelativeCheckboxFieldChoiceIndex",
@@ -2077,7 +2077,7 @@
                 },
                 {
                     "label": "xpathAbsoluteCheckboxFieldOption",
-                    "value": "//div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s)]"
+                    "value": "//div[contains(@class, 'CheckboxGroup---choice_pair') or contains(@class, 'CardStyleCheckboxes---choice_pair')]//label[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s)]"
                 }
             ]
         },
@@ -2089,11 +2089,11 @@
             "byConstants": [
                 {
                     "label": "xpathRelativeSitePageInGroup",
-                    "value": "//li[@data-testid = 'VirtualNavigationMenuTab-nav-tab' and contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), %1$s) and parent::ul[@data-testid = 'VirtualNavigationMenuTab-children-tabs']]/child::a"
+                    "value": "//li[@data-testid = 'VirtualNavigationMenuTab-nav-tab' and contains(translate(@title,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'), %1$s) and parent::ul[@data-testid = 'VirtualNavigationMenuTab-children-tabs']]/child::a"
                 },
                 {
                     "label": "xpathRelativeChartDownload",
-                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]/descendant::button[@title = 'Download PNG Image']"
+                    "value": "//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')]/descendant::button[@title = 'Download PNG Image']"
                 }
             ]
         },
@@ -2109,7 +2109,7 @@
                 },
                 {
                     "label": "xpathAbsoluteRecordTypeUserFilterValue",
-                    "value": "//div[contains(@class,'DropdownWidget---tether_dropdown') or contains(@class,'DropdownWidget---popup_menu')]//li/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[contains(@class,'DropdownWidget---tether_dropdown') or contains(@class,'DropdownWidget---popup_menu')]//li/descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 },
                 {
                     "label": "xpathSideBarCollapseButton",
@@ -2125,7 +2125,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteMenuLink",
-                    "value": "//div[starts-with(@class, 'TempoSiteMenuTab') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]"
+                    "value": "//div[starts-with(@class, 'TempoSiteMenuTab') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
                 }
             ]
         },
@@ -2137,7 +2137,7 @@
             "byConstants": [
                 {
                     "label": "xpathAbsoluteMilestoneFieldLabel",
-                    "value": "//ol[contains(@class, 'MilestoneWidget---milestone')]/parent::div/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]/parent::div/parent::div"
+                    "value": "//ol[contains(@class, 'MilestoneWidget---milestone')]/parent::div/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]/parent::div/parent::div"
                 }
             ]
         },
@@ -2166,7 +2166,7 @@
                 },
                 {
                     "label": "xpathAbsoluteMilestoneFieldLabel",
-                    "value": "//ol[contains(@class, 'MilestoneWidget---list')]/parent::div/parent::div/parent::div/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=%1$s]/parent::div/parent::div"
+                    "value": "//ol[contains(@class, 'MilestoneWidget---list')]/parent::div/parent::div/parent::div/parent::div/preceding-sibling::div/span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç')=%1$s]/parent::div/parent::div"
                 },
                 {
                     "label": "xpathRelativeMilestoneStepSelected",
@@ -2203,7 +2203,7 @@
             "byConstants": [
                 {
                     "label": "xpathRelativeSectionValidationMessageSpecificValue",
-                    "value": "//div[contains(@class,'MessageLayout---message MessageLayout---error')]/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]]"
+                    "value": "//div[contains(@class,'MessageLayout---message MessageLayout---error')]/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 }
             ]
         }
