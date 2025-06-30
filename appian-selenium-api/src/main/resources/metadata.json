@@ -2206,6 +2206,15 @@
                     "value": "//div[contains(@class,'MessageLayout---message MessageLayout---error')]/p[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]"
                 }
             ]
+        },
+        {
+            "version": "25.4",
+            "locales": [
+                
+            ],
+            "byConstants": [
+                
+            ]
         }
     ]
 }

@@ -8,7 +8,7 @@ public abstract class AbstractTest {
     protected static final String TEST_BROWSER =
             System.getenv("browser") == null ? "REMOTE_CHROME" : System.getenv("browser");
     protected static final String TEST_SITE_VERSION =
-            System.getenv("version") == null ? "25.3" : System.getenv("version");
+            System.getenv("version") == null ? "25.4" : System.getenv("version");
     protected static final String TEST_SITE_URL = System.getenv("url");
     protected static final String TEST_SITE_LOCALE = "en_US";
     protected static final String TEST_ROLE = "role.basic_user";
