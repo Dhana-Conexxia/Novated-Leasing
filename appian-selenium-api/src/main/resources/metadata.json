@@ -2213,7 +2213,14 @@
                 
             ],
             "byConstants": [
-                
+                {
+                    "label": "xpathRelativeSectionValidationMessageSpecificValue",
+                    "value": "//div[contains(@class,'MessageLayout---message MessageLayout---error')]/descendant::p[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
+                },
+                {
+                    "label": "xpathRelativeSectionValidationMessage",
+                    "value": ".//div[contains(@class,'MessageLayout---message')]/descendant::p"
+                }
             ]
         }
     ]
