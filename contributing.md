@@ -59,11 +59,11 @@ Before submitting an MR:
 * Your code should pass all the automated tests before you submit your PR for review.
     * See [Running the tests](#running-the-tests) above.
     * You can label pull requests as "Draft" to indicate they are not yet ready for merge.
-* Your patch should include a changelog entry in the "unreleased" section of CHANGES.md, particularly if it would be a
-  breaking change for consumers of the tool.
+* Your patch should include a changelog entry in CHANGELOG.md if it includes new features or breaking changes.
 
 When submitting an MR:
 
 * You agree to license your code under the project's open source license (APACHE 2.0).
 * Base your branch off the current `main` branch.
 * Add both your code and new tests if relevant.
+* When MR is ready to be merged open an issue and mention the issue in your MR using the [closing pattern](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
