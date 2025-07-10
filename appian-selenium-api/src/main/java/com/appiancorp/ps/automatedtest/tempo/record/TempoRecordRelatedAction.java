@@ -109,6 +109,7 @@ public final class TempoRecordRelatedAction extends AppianObject implements Clic
             } else {
                 waitFor(params);
             }
+            i++;
         }
     }
 }
