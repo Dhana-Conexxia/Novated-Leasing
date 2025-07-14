@@ -38,8 +38,8 @@ public final class TempoPickerFieldSelection extends TempoPickerField implements
     @Override
     public void waitFor(WebElement fieldLayout, String... params) {
         (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
-                ExpectedConditions.visibilityOf(fieldLayout.findElement(By.xpath(getXpath(
-                        fieldLayout, params)))));
+                ExpectedConditions.visibilityOfElementLocated(By.xpath(getXpath(
+                        fieldLayout, params))));
     }
 
     @Override
