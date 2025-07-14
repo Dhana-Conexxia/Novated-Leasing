@@ -81,8 +81,10 @@ public class TempoPickerField extends AbstractTempoField {
                 XPATH_ABSOLUTE_PICKER_SUGGESTION_CONTAINS :
                 XPATH_ABSOLUTE_PICKER_SUGGESTION;
 
-        WebElement suggestion = settings.getDriver().findElement(
-                By.xpath(xpathFormat(suggestionXpath, fieldValue, fieldValue)));
+        WebElement suggestion = new WebDriverWait(settings.getDriver(),
+                Duration.ofSeconds(settings.getTimeoutSeconds())).until(
+                        ExpectedConditions
+                                .elementToBeClickable(By.xpath(xpathFormat(suggestionXpath, fieldValue, fieldValue))));
         suggestion.click();
         TempoPickerFieldSelection.getInstance(settings).waitFor(fieldLayout, fieldValue);
     }
