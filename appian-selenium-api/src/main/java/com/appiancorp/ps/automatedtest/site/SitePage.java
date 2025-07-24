@@ -158,7 +158,7 @@ public final class SitePage extends AppianObject implements WaitFor, Clickable, 
 
     public void clickOnSitePageInGroup(String sitePage) {
         (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
-                ExpectedConditions.presenceOfElementLocated(
+                ExpectedConditions.elementToBeClickable(
                         By.xpath(xpathFormat(XPATH_RELATIVE_SITE_PAGE_LINK_IN_SITE_GROUP, sitePage))));
 
         WebElement sitePageElement = settings.getDriver()
