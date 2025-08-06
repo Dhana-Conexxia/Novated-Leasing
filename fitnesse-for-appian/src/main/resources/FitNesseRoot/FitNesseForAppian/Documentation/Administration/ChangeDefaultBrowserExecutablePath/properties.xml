@@ -2,7 +2,7 @@
 <properties>
     <Edit>true</Edit>
     <Files>true</Files>
-    <Help>Modify the default paths to the chrome and firefox executables</Help>
+    <Help>Modify the default paths to the chrome, edge and firefox executables</Help>
     <Properties>true</Properties>
     <RecentChanges>true</RecentChanges>
     <Refactor>true</Refactor>

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -57,19 +58,23 @@ public class RemoteWebDriverBuilder {
             options = getRemoteFirefoxOptions(props);
         } else if (Constants.RemoteDriver.REMOTE_CHROME.equals(browser)) {
             options = getRemoteChromeOptions(props);
+        } else if (Constants.RemoteDriver.REMOTE_EDGE.equals(browser)) {
+            options = getRemoteEdgeOptions(props);
         } else {
             throw new UnsupportedOperationException(
-                    String.format("Unsupported browser '%s'. Only Chrome and Firefox is supported", browser));
+                    String.format("Unsupported browser '%s'. Only Chrome, Edge and Firefox is supported", browser));
         }
 
         RemoteWebDriver driver = new RemoteWebDriver(remoteUrl, options);
         driver.setFileDetector(
                 new LocalFileDetector()); // for file uploads from local disk to work with RemoteWebDriver
-        //driver.manage().timeouts().pageLoadTimeout(2, MINUTES); // Causes firefox to fail
+        // driver.manage().timeouts().pageLoadTimeout(2, MINUTES); // Causes firefox to
+        // fail
 
-        // driver.manage().window().maximize() does not work in Chrome
-        // instead Chrome windows are maximized via ChromeOptions (see getRemoteChromeOptions)
-        if (browser != Constants.RemoteDriver.REMOTE_CHROME) {
+        // driver.manage().window().maximize() does not work in Chrome and Edge
+        // instead Chrome and Edge windows are maximized via ChromeOptions
+        // (see getRemoteChromeOptions and getRemoteEdgeOptions)
+        if (browser != Constants.RemoteDriver.REMOTE_CHROME && browser != Constants.RemoteDriver.REMOTE_EDGE) {
             driver.manage().window().maximize();
         }
         LOG.info("Created remote driver '{}'", driver);
@@ -90,7 +95,7 @@ public class RemoteWebDriverBuilder {
         profile.setPreference("browser.startup.homepage_override.mstone", "ignore");
         profile.setPreference("startup.homepage_welcome_url.additional", "about:blank");
 
-        //Download properties
+        // Download properties
         if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
             profile.setPreference("browser.download.folderList", 2);
             profile.setPreference("browser.download.manager.showWhenStarting", false);
@@ -111,7 +116,7 @@ public class RemoteWebDriverBuilder {
         // Due to https://github.com/SeleniumHQ/selenium/issues/11750
         options.addArguments("--remote-allow-origins=*");
 
-        //Download properties
+        // Download properties
         if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -121,7 +126,7 @@ public class RemoteWebDriverBuilder {
             options.setExperimentalOption("prefs", chromePrefs);
         }
 
-        //Load capabilities from a file
+        // Load capabilities from a file
         String capabilityString = props.getProperty(Constants.CHROME_CAPABILITIES);
         if (!Strings.isNullOrEmpty(capabilityString)) {
             Map<String, String> capabilityMap = null;
@@ -129,6 +134,44 @@ public class RemoteWebDriverBuilder {
                 capabilityMap = Splitter.on(",").withKeyValueSeparator("=").split(capabilityString);
             } catch (Exception e) {
                 LOG.warn("Wrong format for remote chrome capabilities. Use comma to separate between capabilities.");
+            }
+
+            if (capabilityMap != null) {
+                Set<String> capabilityNames = capabilityMap.keySet();
+                for (String capability : capabilityNames) {
+                    String capabilityValue = capabilityMap.get(capability);
+                    LOG.debug("Adding Capability: (" + capability + ", " + capabilityValue + "}");
+                    options.setCapability(capability, capabilityValue);
+                }
+            }
+        }
+        return options;
+    }
+
+    private static Capabilities getRemoteEdgeOptions(Properties props) {
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--remote-allow-origins=*");
+
+        // Download properties
+        if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
+            HashMap<String, Object> edgePrefs = new HashMap<String, Object>();
+            edgePrefs.put("profile.default_content_settings.popups", 0);
+            edgePrefs.put("download.default_directory",
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
+            edgePrefs.put("safebrowsing.enabled", "true");
+            options.setExperimentalOption("prefs", edgePrefs);
+        }
+
+        // Load capabilities from a file
+        String capabilityString = props.getProperty(Constants.EDGE_CAPABILITIES);
+        if (!Strings.isNullOrEmpty(capabilityString)) {
+            Map<String, String> capabilityMap = null;
+            try {
+                capabilityMap = Splitter.on(",").withKeyValueSeparator("=").split(capabilityString);
+            } catch (Exception e) {
+                LOG.warn("Wrong format for remote edge capabilities. Use comma to separate between capabilities.");
             }
 
             if (capabilityMap != null) {
@@ -151,4 +194,3 @@ public class RemoteWebDriverBuilder {
         }
     }
 }
-

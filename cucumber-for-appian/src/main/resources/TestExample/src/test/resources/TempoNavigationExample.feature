@@ -3,7 +3,7 @@ Feature: Sample Tempo Navigation Example to get started with CucumberForAppian
 
   Prerequisites for running the test:
   1. Run the appropriate setupCustomPropertiesFor... script
-  2. Replace BROWSER with either FIREFOX or CHROME
+  2. Replace BROWSER with either FIREFOX, EDGE, or CHROME
   3. Replace APPIAN_URL with Appian URL, beginning with https:// and including /suite at the end (e.g. https://forum.appian.com/suite)
   4. Replace APPIAN_VERSION with a supported Appian Version in xx.x format
   5. Replace APPIAN_LOCALE with either "en_US" or "en_GB"

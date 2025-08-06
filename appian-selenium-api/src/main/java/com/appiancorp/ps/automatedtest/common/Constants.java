@@ -7,6 +7,7 @@ public class Constants {
     public final static String DOWNLOAD_DIRECTORY = "download.directory";
     public final static String DOWNLOAD_MIME_TYPES = "download.mime.types";
     public final static String CHROME_CAPABILITIES = "chrome.capabilities";
+    public final static String EDGE_CAPABILITIES = "edge.capabilities";
 
     public final static String ACCEPT_BUTTON_LABEL = "acceptButton";
 
@@ -18,7 +19,8 @@ public class Constants {
 
     public enum Driver {
         CHROME("chrome.browser.home", "chrome.driver.home", "chromedriver.exe"),
-        FIREFOX("firefox.browser.home", "firefox.driver.home", "geckodriver.exe");
+        FIREFOX("firefox.browser.home", "firefox.driver.home", "geckodriver.exe"),
+        EDGE("edge.browser.home", "edge.driver.home", "msedgedriver.exe");
 
         private String browserHome;
         private String driverHome;
@@ -45,7 +47,9 @@ public class Constants {
 
     public enum RemoteDriver {
         REMOTE_CHROME("chrome.host.ip", "chrome.host.port", "chrome", "chrome.host.protocol"),
-        REMOTE_FIREFOX("firefox.host.ip", "firefox.host.port", "firefox", "firefox.host.protocol");
+        REMOTE_FIREFOX("firefox.host.ip", "firefox.host.port", "firefox", "firefox.host.protocol"),
+        REMOTE_EDGE("edge.host.ip", "edge.host.port", "edge", "edge.host.protocol");
+
         private String browserIP;
         private String browserPort;
         private String browserName;

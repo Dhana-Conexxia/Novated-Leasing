@@ -25,6 +25,8 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -67,10 +69,11 @@ public class BaseFixture {
      *
      * @param username    ID or NAME of the username field in the login page
      * @param password    ID or NAME of the password field in the login page
-     * @param loginButton NAME for the login/submit button in the login page (Optional)
+     * @param loginButton NAME for the login/submit button in the login page
+     *                    (Optional)
      */
     public void setupLoginWithUsernameFieldAndPasswordFieldAndLoginButton(String username, String password,
-                                                                          String loginButton) {
+            String loginButton) {
         System.setProperty("fitnesseForAppian.login.username", username);
         System.setProperty("fitnesseForAppian.login.password", password);
         System.setProperty("fitnesseForAppian.login.loginButton", loginButton);
@@ -88,9 +91,11 @@ public class BaseFixture {
     /**
      * Starts selenium browser<br>
      * <br>
-     * FitNesse Example: <code>| setup selenium web driver with | BROWSER | browser |</code>
+     * FitNesse Example:
+     * <code>| setup selenium web driver with | BROWSER | browser |</code>
      *
-     * @param browser Browser to test with, currently supports FIREFOX, CHROME, IE
+     * @param browser Browser to test with, currently supports FIREFOX, CHROME, IE,
+     *                EDGE
      */
     @Deprecated
     public void setupSeleniumWebDriverWithBrowser(String browser) {
@@ -102,74 +107,17 @@ public class BaseFixture {
      * <br>
      * FitNesse Example: <code>| setup with | BROWSER | browser |</code>
      *
-     * @param browser Browser to test with, currently supports FIREFOX, CHROME, IE
+     * @param browser Browser to test with, currently supports FIREFOX, CHROME, IE,
+     *                EDGE
      */
     public void setupWithBrowser(String browser) {
         LOG.debug("browser=" + browser);
         if (browser.equals(Constants.Driver.FIREFOX.name())) {
-            String driverHome = determineDriverHome(Constants.Driver.FIREFOX);
-            if (driverHome != null) {
-                System.setProperty("webdriver.gecko.driver", driverHome);
-            }
-            FirefoxProfile prof = new FirefoxProfile();
-            prof.setPreference("dom.file.createInChild", true);
-            prof.setPreference("browser.startup.homepage_override.mstone", "ignore");
-            prof.setPreference("startup.homepage_welcome_url.additional", "about:blank");
-            if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
-                prof.setPreference("browser.download.folderList", 2);
-                prof.setPreference("browser.download.manager.showWhenStarting", false);
-                prof.setPreference("browser.download.dir",
-                        FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
-                prof.setPreference("browser.helperApps.neverAsk.saveToDisk",
-                        props.getProperty(Constants.DOWNLOAD_MIME_TYPES));
-            }
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setProfile(prof);
-            if (!StringUtils.isBlank(props.getProperty(Constants.Driver.FIREFOX.getBrowserHome()))) {
-                File pathToBinary = new File(
-                        FilenameUtils.separatorsToSystem(props.getProperty(Constants.Driver.FIREFOX.getBrowserHome())));
-                FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
-                firefoxOptions.setBinary(ffBinary);
-                settings.setDriver(new FirefoxDriver(firefoxOptions));
-            } else {
-                settings.setDriver(new FirefoxDriver(firefoxOptions));
-            }
+            setupFirefox();
         } else if (browser.equals(Constants.Driver.CHROME.name())) {
-            String driverHome = determineDriverHome(Constants.Driver.CHROME);
-
-            if (driverHome != null) {
-                System.setProperty("webdriver.chrome.driver", driverHome);
-            }
-            System.setProperty("webdriver.chrome.args", "--disable-logging");
-            System.setProperty("webdriver.chrome.silentOutput", "true");
-
-            ChromeOptions co = new ChromeOptions();
-            // Due to https://github.com/SeleniumHQ/selenium/issues/11750
-            co.addArguments("--remote-allow-origins=*");
-            co.addArguments("--disable-extensions");
-            // Chromedriver v2.28 onwards, when "--disable-extensions" flag is passed,
-            // it implicitly passes "disable-extensions-except" flag which loads Chrome automation extension,
-            // therefore we need to explicitly set "useAutomationExtension" option to be false
-            co.setExperimentalOption("useAutomationExtension", false);
-
-            if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
-                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-                chromePrefs.put("profile.default_content_settings.popups", 0);
-                chromePrefs.put("download.default_directory",
-                        FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
-                chromePrefs.put("safebrowsing.enabled", "true");
-                co.setExperimentalOption("prefs", chromePrefs);
-            }
-
-            if (StringUtils.isNotBlank(props.getProperty(Constants.Driver.CHROME.getBrowserHome()))) {
-                co.setBinary(
-                        FilenameUtils.separatorsToSystem(props.getProperty(Constants.Driver.CHROME.getBrowserHome())));
-                co.addArguments("--disable-extensions");
-                co.addArguments("--no-sandbox");
-                settings.setDriver(new ChromeDriver(co));
-            } else {
-                settings.setDriver(new ChromeDriver(co));
-            }
+            setupChrome();
+        } else if (browser.equals(Constants.Driver.EDGE.name())) {
+            setupEdge();
         } else if (browser.equals(Constants.RemoteDriver.REMOTE_FIREFOX.name())) {
             WebDriver driver = new RemoteWebDriverBuilder()
                     .browser(Constants.RemoteDriver.REMOTE_FIREFOX)
@@ -180,6 +128,11 @@ public class BaseFixture {
                     .browser(Constants.RemoteDriver.REMOTE_CHROME)
                     .create(props);
             settings.setDriver(driver);
+        } else if (browser.equals(Constants.RemoteDriver.REMOTE_EDGE.name())) {
+            WebDriver driver = new RemoteWebDriverBuilder()
+                    .browser(Constants.RemoteDriver.REMOTE_EDGE)
+                    .create(props);
+            settings.setDriver(driver);
         }
 
         try {
@@ -187,6 +140,112 @@ public class BaseFixture {
         } catch (Exception e) {
             // Firefox v54 and under throw an exception but do properly maximize
             // This is fixed in Firefox v55 but hasn't been released as of this change
+        }
+    }
+
+    private void setupChrome() {
+        String driverHome = determineDriverHome(Constants.Driver.CHROME);
+
+        if (driverHome != null) {
+            System.setProperty("webdriver.chrome.driver", driverHome);
+        }
+        System.setProperty("webdriver.chrome.args", "--disable-logging");
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+
+        ChromeOptions co = new ChromeOptions();
+        // Due to https://github.com/SeleniumHQ/selenium/issues/11750
+        co.addArguments("--remote-allow-origins=*");
+        co.addArguments("--disable-extensions");
+        // Chromedriver v2.28 onwards, when "--disable-extensions" flag is passed,
+        // it implicitly passes "disable-extensions-except" flag which loads Chrome
+        // automation extension,
+        // therefore we need to explicitly set "useAutomationExtension" option to be
+        // false
+        co.setExperimentalOption("useAutomationExtension", false);
+
+        if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
+            HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+            chromePrefs.put("profile.default_content_settings.popups", 0);
+            chromePrefs.put("download.default_directory",
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
+            chromePrefs.put("safebrowsing.enabled", "true");
+            co.setExperimentalOption("prefs", chromePrefs);
+        }
+
+        if (StringUtils.isNotBlank(props.getProperty(Constants.Driver.CHROME.getBrowserHome()))) {
+            co.setBinary(
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.Driver.CHROME.getBrowserHome())));
+            co.addArguments("--disable-extensions");
+            co.addArguments("--no-sandbox");
+            settings.setDriver(new ChromeDriver(co));
+        } else {
+            settings.setDriver(new ChromeDriver(co));
+        }
+    }
+
+    private void setupEdge() {
+        String driverHome = determineDriverHome(Constants.Driver.EDGE);
+
+        if (driverHome != null) {
+            System.setProperty("webdriver.edge.driver", driverHome);
+        }
+        System.setProperty("webdriver.edge.args", "--disable-logging");
+        System.setProperty("webdriver.edge.silentOutput", "true");
+
+        EdgeOptions eo = new EdgeOptions();
+        eo.addArguments("--remote-allow-origins=*");
+        eo.addArguments("--disable-extensions");
+        eo.setExperimentalOption("useAutomationExtension", false);
+
+        if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
+            HashMap<String, Object> edgePrefs = new HashMap<String, Object>();
+            edgePrefs.put("profile.default_content_settings.popups", 0);
+            edgePrefs.put("download.default_directory",
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
+            edgePrefs.put("safebrowsing.enabled", "true");
+            eo.setExperimentalOption("prefs", edgePrefs);
+        }
+
+        if (StringUtils.isNotBlank(props.getProperty(Constants.Driver.EDGE.getBrowserHome()))) {
+            eo.setBinary(
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.Driver.EDGE.getBrowserHome())));
+            eo.addArguments("--disable-extensions");
+            eo.addArguments("--no-sandbox");
+            eo.addArguments("--guest");
+
+            settings.setDriver(new EdgeDriver(eo));
+        } else {
+            settings.setDriver(new EdgeDriver(eo));
+        }
+    }
+
+    private void setupFirefox() {
+        String driverHome = determineDriverHome(Constants.Driver.FIREFOX);
+        if (driverHome != null) {
+            System.setProperty("webdriver.gecko.driver", driverHome);
+        }
+        FirefoxProfile prof = new FirefoxProfile();
+        prof.setPreference("dom.file.createInChild", true);
+        prof.setPreference("browser.startup.homepage_override.mstone", "ignore");
+        prof.setPreference("startup.homepage_welcome_url.additional", "about:blank");
+        if (!StringUtils.isBlank(props.getProperty(Constants.DOWNLOAD_DIRECTORY))) {
+            prof.setPreference("browser.download.folderList", 2);
+            prof.setPreference("browser.download.manager.showWhenStarting", false);
+            prof.setPreference("browser.download.dir",
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.DOWNLOAD_DIRECTORY)));
+            prof.setPreference("browser.helperApps.neverAsk.saveToDisk",
+                    props.getProperty(Constants.DOWNLOAD_MIME_TYPES));
+        }
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setProfile(prof);
+        if (!StringUtils.isBlank(props.getProperty(Constants.Driver.FIREFOX.getBrowserHome()))) {
+            File pathToBinary = new File(
+                    FilenameUtils.separatorsToSystem(props.getProperty(Constants.Driver.FIREFOX.getBrowserHome())));
+            FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
+            firefoxOptions.setBinary(ffBinary);
+            settings.setDriver(new FirefoxDriver(firefoxOptions));
+        } else {
+            settings.setDriver(new FirefoxDriver(firefoxOptions));
         }
     }
 
@@ -248,7 +307,8 @@ public class BaseFixture {
     }
 
     /**
-     * Sets the Appian locale. This is useful so that test cases will work in different geographic regions that format date and time
+     * Sets the Appian locale. This is useful so that test cases will work in
+     * different geographic regions that format date and time
      * differently.<br>
      * <br>
      * FitNesse Example: <code>| set appian locale to | en_US or en_GB |</code>
@@ -260,9 +320,11 @@ public class BaseFixture {
     }
 
     /**
-     * Reads a file which defines a new locale and sets the current locale to that.<br>
+     * Reads a file which defines a new locale and sets the current locale to
+     * that.<br>
      * <br>
-     * FitNesse Example: <code>| create appian locale | Absolute Path to locale file |</code>
+     * FitNesse Example:
+     * <code>| create appian locale | Absolute Path to locale file |</code>
      *
      * @param localePath Absolute path to the JSON encoded locale file.
      *                   Format of file:
@@ -273,7 +335,8 @@ public class BaseFixture {
      *                   { "label": "timeFormat", "value": "FORMAT_STRING" },
      *                   { "label": "timeDisplayFormat", "value": "FORMAT_STRING" },
      *                   { "label": "datetimeFormat", "value": "FORMAT_STRING" },
-     *                   { "label": "datetimeDisplayFormat","value": "FORMAT_STRING" }
+     *                   { "label": "datetimeDisplayFormat","value": "FORMAT_STRING"
+     *                   }
      *                   ],
      *                   "labels": [
      *                   { "label": "", "value": "" }
@@ -286,7 +349,8 @@ public class BaseFixture {
     }
 
     /**
-     * Sets the start datetime with which all of the relative dates and datetimes will be calculated.<br>
+     * Sets the start datetime with which all of the relative dates and datetimes
+     * will be calculated.<br>
      * <br>
      * FitNesse Example: <code>| set start datetime |</code>
      */
@@ -315,8 +379,10 @@ public class BaseFixture {
     }
 
     /**
-     * Sets the path on the automated test server where screenshots will be placed. <br>
-     * FitNesse Example: <code>| set screenshot path to | AUTOMATED_TESTING_HOME/screenshots/ |</code>
+     * Sets the path on the automated test server where screenshots will be placed.
+     * <br>
+     * FitNesse Example:
+     * <code>| set screenshot path to | AUTOMATED_TESTING_HOME/screenshots/ |</code>
      *
      * @param path Path to save screen shots
      */
@@ -325,7 +391,8 @@ public class BaseFixture {
     }
 
     /**
-     * Set the flag to stop FitNesse on error. If true, FitNesse will quit on the first failed test. This will also quit the WebDriver as
+     * Set the flag to stop FitNesse on error. If true, FitNesse will quit on the
+     * first failed test. This will also quit the WebDriver as
      * well.<br>
      * <br>
      * FitNesse Example: <code>| set stop on error to | BOOLEAN |</code>
@@ -337,7 +404,8 @@ public class BaseFixture {
     }
 
     /**
-     * Set the flag to take screenshots on errors. If true, every error in an automated test will trigger a screenshot to be placed in
+     * Set the flag to take screenshots on errors. If true, every error in an
+     * automated test will trigger a screenshot to be placed in
      * {@link #setScreenshotPathTo(String)}.<br>
      * <br>
      * FitNesse Example: <code>| set take error screenshots to | true |</code>
@@ -365,7 +433,8 @@ public class BaseFixture {
     /**
      * Resize browser window.<br>
      * <br>
-     * FitNesse Example: <code>| resize window width | WIDTH | height | HEIGHT |</code>
+     * FitNesse Example:
+     * <code>| resize window width | WIDTH | height | HEIGHT |</code>
      *
      * @param width  Width for window
      * @param height Height for window
@@ -377,7 +446,8 @@ public class BaseFixture {
     /**
      * Click on the x and y coordinate on monitor. <br>
      * <br>
-     * FitNesse Examples:<code>| click on x | X | and y | Y | coordinates on monitor |</code>
+     * FitNesse
+     * Examples:<code>| click on x | X | and y | Y | coordinates on monitor |</code>
      *
      * @param x X coordinate on the primary monitor
      * @param y Y coordinate on the primary monitor
@@ -398,7 +468,8 @@ public class BaseFixture {
     }
 
     /**
-     * Take a screenshot and place it in the directory defined by: {@link #setScreenshotPathTo(String)}.<br>
+     * Take a screenshot and place it in the directory defined by:
+     * {@link #setScreenshotPathTo(String)}.<br>
      * <br>
      * FitNesse Example: <code>| take screenshot |</code>
      *
@@ -411,7 +482,8 @@ public class BaseFixture {
     /**
      * Login to Appian.<br>
      * <br>
-     * FitNesse Example: <code>| login into | APPIAN_URL | with username | USERNAME | and password | PASSWORD |</code>
+     * FitNesse Example:
+     * <code>| login into | APPIAN_URL | with username | USERNAME | and password | PASSWORD |</code>
      *
      * @param url      Url of Appian site
      * @param userName Username Appian username
@@ -426,7 +498,9 @@ public class BaseFixture {
     /**
      * Login to Appian.<br>
      * <br>
-     * FitNesse Example: <code>| login with username | USERNAME | and password | PASSWORD |</code> - Uses the url set here:
+     * FitNesse Example:
+     * <code>| login with username | USERNAME | and password | PASSWORD |</code> -
+     * Uses the url set here:
      * {@link #setAppianUrlTo(String)}
      *
      * @param userName Username Appian username
@@ -485,7 +559,9 @@ public class BaseFixture {
     /**
      * Login to and Appian site containing terms and conditions.<br>
      * <br>
-     * FitNesse Example: <code>| login with terms with username | USERNAME | and password | PASSWORD |</code> - Uses the url set here:
+     * FitNesse Example:
+     * <code>| login with terms with username | USERNAME | and password | PASSWORD |</code>
+     * - Uses the url set here:
      * {@link #setAppianUrlTo(String)}
      *
      * @param userName Appian username
@@ -500,7 +576,8 @@ public class BaseFixture {
     /**
      * Login to and Appian site containing terms and conditions.<br>
      * <br>
-     * FitNesse Example: <code>| login with terms with username | USERNAME | </code> - Uses the url set here: {@link #setAppianUrlTo(String)}
+     * FitNesse Example: <code>| login with terms with username | USERNAME | </code>
+     * - Uses the url set here: {@link #setAppianUrlTo(String)}
      *
      * @param userName Appian username
      */
@@ -514,7 +591,8 @@ public class BaseFixture {
     /**
      * Login to and Appian site containing terms and conditions.<br>
      * <br>
-     * FitNesse Example: <code>| login with terms with role | USER_ROLE| </code> - Uses the url set here: {@link #setAppianUrlTo(String)}
+     * FitNesse Example: <code>| login with terms with role | USER_ROLE| </code> -
+     * Uses the url set here: {@link #setAppianUrlTo(String)}
      *
      * @param role Role matching role in users.properties
      */
@@ -612,7 +690,8 @@ public class BaseFixture {
      * Waits until a particular datetime<br>
      * <br>
      * FitNesse Examples:<br>
-     * <code>| wait until | 2016-01-11 12:31 |</code> - Test will halt until that particular time
+     * <code>| wait until | 2016-01-11 12:31 |</code> - Test will halt until that
+     * particular time
      *
      * @param datetime Datetime string must match yyyy-mm-dd HH:mm
      */
@@ -893,7 +972,8 @@ public class BaseFixture {
     /**
      * Returns a random string of a specific length<br>
      * <br>
-     * FitNesse example: <code>| $rand= | get random string | 5 | </code> - This will set the variable <i>rand</i> to a random string
+     * FitNesse example: <code>| $rand= | get random string | 5 | </code> - This
+     * will set the variable <i>rand</i> to a random string
      * which can later be accessed using $rand.
      *
      * @param length Length of random string
@@ -906,7 +986,8 @@ public class BaseFixture {
     /**
      * Returns a random alphabetic string of a specific length<br>
      * <br>
-     * FitNesse example: <code>| $rand= | get random alphabet string | 5 | </code> - This will set the variable <i>rand</i> to a random
+     * FitNesse example: <code>| $rand= | get random alphabet string | 5 | </code> -
+     * This will set the variable <i>rand</i> to a random
      * alphabet string
      * which can later be accessed using $rand.
      *
@@ -920,8 +1001,11 @@ public class BaseFixture {
     /**
      * Returns a random integer of a specific length<br>
      * <br>
-     * FitNesse example: <code>| $randInt= | get random integer from | INT_MIN | to | INT_MAX | </code> - This will set the variable
-     * <i>randInt</i> to a random integer between two numbers which can later be accessed using $randInt.
+     * FitNesse example:
+     * <code>| $randInt= | get random integer from | INT_MIN | to | INT_MAX | </code>
+     * - This will set the variable
+     * <i>randInt</i> to a random integer between two numbers which can later be
+     * accessed using $randInt.
      *
      * @param min Minimum of random integer
      * @param max Maximum of random integer
@@ -941,8 +1025,11 @@ public class BaseFixture {
     /**
      * Returns a random integer of a specific length<br>
      * <br>
-     * FitNesse example: <code>| $randDecimal= | get random decimal from | DOUBLE_MIN |to | DOUBLE_MAX|</code> - This will set the
-     * variable <i>randDecimal</i> to a random decimal between two numbers which can later be accessed using $randDecimal.
+     * FitNesse example:
+     * <code>| $randDecimal= | get random decimal from | DOUBLE_MIN |to | DOUBLE_MAX|</code>
+     * - This will set the
+     * variable <i>randDecimal</i> to a random decimal between two numbers which can
+     * later be accessed using $randDecimal.
      *
      * @param min Minimum of random decimal
      * @param max Maximum of random decimal
@@ -962,13 +1049,17 @@ public class BaseFixture {
     /**
      * Returns a random integer of a specific length<br>
      * <br>
-     * FitNesse example: <code>| $randDecimal= | get random decimal from | DOUBLE_MIN |to | DOUBLE_MAX| with | DECIMAL_PLACES |</code> -
-     * This will set the variable <i>randDecimal</i> to a random decimal between two numbers which can later be accessed using $randDecimal.
+     * FitNesse example:
+     * <code>| $randDecimal= | get random decimal from | DOUBLE_MIN |to | DOUBLE_MAX| with | DECIMAL_PLACES |</code>
+     * -
+     * This will set the variable <i>randDecimal</i> to a random decimal between two
+     * numbers which can later be accessed using $randDecimal.
      *
      * @param min           Minimum of random decimal
      * @param max           Maximum of random decimal
      * @param decimalPlaces Number of integers after the decimal places to display
-     * @return Random decimal between the min and max with a certain number of decimal places
+     * @return Random decimal between the min and max with a certain number of
+     *         decimal places
      */
     public double getRandomDecimalFromToWith(double min, double max, int decimalPlaces) {
         if (min > max) {

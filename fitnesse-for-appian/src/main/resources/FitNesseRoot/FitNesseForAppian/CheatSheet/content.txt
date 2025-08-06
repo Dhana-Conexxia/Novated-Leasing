@@ -347,16 +347,16 @@ Remove a specific value from a picker:
 |clear field|FIELD_LABEL or [FIELD_INDEX] or FIELD_LABEL[INDEX]|of|VALUE_TO_REMOVE|
 
 Verify a tag field is present:
-|verify tag field |FIELD_LABEL or [FIELD_INDEX] or FIELD_LABEL[INDEX]| is present|
+|verify tag field|FIELD_LABEL or [FIELD_INDEX] or FIELD_LABEL[INDEX]|is present|
 
 Verify a tag item is present:
-|verify tag item |ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]| is present
+|verify tag item|ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]|is present
 
 Click on a tag field's tag item:
-|click on tag field |FIELD_LABEL or [FIELD_INDEX] or FIELD_LABEL[INDEX]| tag item |ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]|
+|click on tag field|FIELD_LABEL or [FIELD_INDEX] or FIELD_LABEL[INDEX]|tag item|ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]|
 
 Click on a tag item:
-|click on tag item |ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]|
+|click on tag item|ITEM_LABEL or [ITEM_INDEX] or ITEM_LABEL[INDEX]|
 
 Clear a grid field (Column and Row Numbers should be in square brackets []):
 
@@ -643,11 +643,11 @@ Populate a dropdown or multiple dropdown search box:
 
 Verify confirmation dialog header:
 
-|verify confirmation dialog header |HEADER_TEXT| is present|
+|verify confirmation dialog header|HEADER_TEXT|is present|
 
 Verify confirmation dialog message:
 
-|verify confirmation dialog message |MESSAGE_TEXT| is present|
+|verify confirmation dialog message|MESSAGE_TEXT|is present|
 
 Click on a milestone step:
 
@@ -679,7 +679,7 @@ Click on a card:
 
 Verify card choice is selected:
 
-|verify card choice|CARD_NAME or CARD_NAME[INDEX]|in field|FIELD_NAME or FIELD_NAME[INDEX]| is selected|
+|verify card choice|CARD_NAME or CARD_NAME[INDEX]|in field|FIELD_NAME or FIELD_NAME[INDEX]|is selected|
 
 Click on card in card choice field:
 
@@ -727,7 +727,7 @@ Navigate to specific page on an Appian Site:
 
 Navigate to a specific page organized under a site group on an Appian Site:
 
-|navigate to site | SITE_IDENTIFIER | page | PAGE_IDENTIFIER | in group | GROUP_IDENTIFIER|
+|navigate to site|SITE_IDENTIFIER|page|PAGE_IDENTIFIER|in group|GROUP_IDENTIFIER|
 
 Click on an Appian Site page from within a site. Although pages are capitalized on the site, the SITE_PAGE must match what is entered when creating the page:
 
@@ -735,7 +735,7 @@ Click on an Appian Site page from within a site. Although pages are capitalized 
 
 Click on an Appian Site page organized under a site group:
 
-|click on site page | SITE_PAGE | in group | SITE_GROUP|
+|click on site page|SITE_PAGE|in group|SITE_GROUP|
 
 Open settings menu from a site:
 
@@ -750,7 +750,7 @@ Navigate to another site from Sites Discoverability menu:
 |use discoverability to navigate to|SITE_NAME|
 
 !3 UTILITY METHODS
-Initialize Selenium Web Driver and open browser. Options include FIREFOX, CHROME, REMOTE_FIREFOX, REMOTE_CHROME:
+Initialize Selenium Web Driver and open browser. Options include FIREFOX, CHROME, EDGE, REMOTE_FIREFOX, REMOTE_CHROME, REMOTE_EDGE:
 
 |setup with|BROWSER_NAME|browser|
 

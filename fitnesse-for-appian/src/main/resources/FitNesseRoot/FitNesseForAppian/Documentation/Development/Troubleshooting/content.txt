@@ -27,6 +27,9 @@ Information on using Selenium with Chrome can be found at: https://github.com/Se
 
 Information on using Selenium with Internet Explorer can be found at: https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver
 
+!3 Edge
+Information on using Selenium with Edge can be found at: https://selenium.dev/documentation/webdriver/browsers/edge/
+
 !4 Test Script Does not Login in Internet Explorer
 '''Problem''':
 Nothing occurs when the test script attempts to log in. The test script fails to log into the Appian application and returns a message in the test script resembling the following:

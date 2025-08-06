@@ -11,7 +11,7 @@
   * The first table run by FitNesse, e.g. !-SuiteSetUp-!, must begin with | script | com.appiancorp.ps.automatedtest.fixture.SitesFixture | and all subsequent tables using the same driver must begin with | script |.
  * '''| setup with browser | BROWSER | '''
   * Creates new driver and opens browser
-  * Replace BROWSER with FIREFOX, IE or CHROME
+  * Replace BROWSER with FIREFOX, IE, EDGE, or CHROME
  * '''| set appian url to | APPIAN_URL |'''
   * Sets Appian URL used for logging in and navigating to sites
   * Replace APPIAN_URL with URL for Appian site, including /suite, e.g. http://site.appiancloud.com/suite

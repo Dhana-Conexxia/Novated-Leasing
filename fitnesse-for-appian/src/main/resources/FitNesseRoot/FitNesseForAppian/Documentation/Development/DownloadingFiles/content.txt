@@ -1,5 +1,5 @@
 !3 Downloading Files
-Clicking a link on an interface with the purposes of downloading a file will continue to work in FitNesse tests cases for the Firefox and Chrome browsers.
+Clicking a link on an interface with the purposes of downloading a file will continue to work in FitNesse tests cases for the Firefox, Edge, and Chrome browsers.
 
 There are a few properties in the ''custom.properties'' file that effect file downloads during tests:
 
