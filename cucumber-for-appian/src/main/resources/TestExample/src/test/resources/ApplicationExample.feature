@@ -10,7 +10,7 @@ Feature: Sample feature file that interacts with an Appian application
 
   Prerequisites for running the test on the configured site above:
   1. Run the appropriate setupCustomPropertiesFor... script
-  2. Replace BROWSER with either FIREFOX or CHROME
+  2. Replace BROWSER with either FIREFOX, EDGE, or CHROME
   3. Replace APPIAN_URL with your Appian site URL, beginning with https:// and including /suite at the end (e.g. https://forum.appian.com/suite)
   4. Replace APPIAN_VERSION with a supported Appian Version in xx.x format
   5. Replace APPIAN_LOCALE with either "en_US" or "en_GB"

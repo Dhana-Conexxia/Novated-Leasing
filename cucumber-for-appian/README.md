@@ -21,7 +21,7 @@ Cucumber For Appian is a client-side tool that builds on top of what FitNesse Fo
 ## Running Tests
 
 * Edit the [TempoNavigationExample.feature](./src/main/resources/TestExample/src/test/resources/TempoNavigationExample.feature) file. The comments on the top of the .feature files will also help you in setting up.
-  * `BROWSER` - Chrome or Firefox
+  * `BROWSER` - Chrome, Edge, or Firefox
   * `APPIAN_URL` - e.g. https://site-name.appiancloud.com
   * `APPIAN_VERSION` - e.g. 25.2
   * `APPIAN_LOCALE` - en_US or en_GB

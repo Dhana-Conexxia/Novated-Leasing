@@ -556,7 +556,7 @@ Feature: Cucumber for Appian Cheatsheet
 
 
   Scenario: Utility Methods
-    # Initialize Selenium Web Driver and open browser. Options include FIREFOX, CHROME, REMOTE_FIREFOX, REMOTE_CHROME:
+    # Initialize Selenium Web Driver and open browser. Options include FIREFOX, CHROME, EDGE, REMOTE_FIREFOX, REMOTE_CHROME, REMOTE_EDGE:
     Given I setup with "BROWSER_NAME" browser
 
     # Tear down Selenium Web Driver and close browser:

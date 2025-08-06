@@ -28,6 +28,7 @@ The following steps are for manual setup. If you can use docker, you can follow 
     * download.directory to be a folder of your choosing
     * chrome.driver.home to be TESTING_HOME/lib/drivers/chromedriver(.exe if using windows, -mac if using a mac, -linux if using UNIX)
     * firefox.driver.home to be TESTING_HOME/lib/drivers/geckodriver(.exe if using windows, -mac if using a mac, -linux64 if using UNIX)
+    * edge.driver.home to be TESTING_HOME/lib/drivers/msedgedriver(.exe if using windows, -mac if using a mac, -linux64 if using UNIX)
 4) Run start.bat if using windows, start-mac.sh for Mac, and start-unix.sh for UNIX to install and run FitNesse for Appian. Installation should take around 30 seconds and is complete when you see the message "Starting FitNesse on port: 8980". To stop FitNesse for Appian, invoke Ctrl+C in the terminal.
 
 ## Running Tests

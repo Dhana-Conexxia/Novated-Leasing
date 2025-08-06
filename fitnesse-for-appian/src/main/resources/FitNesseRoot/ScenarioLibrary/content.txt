@@ -3,7 +3,7 @@
 !3 Update these variables for your specific test environment
 
 !** Variables for Scenarios
-Default browser can be '''FIREFOX''' or '''CHROME'''
+Default browser can be '''FIREFOX''', '''EDGE''' or '''CHROME'''
 !define defaultBrowser {FIREFOX}
 
 Default Version can be any supported Appian Version in '''xx.x''' format from (CURRENT_SUPPORT_APPIAN_VERSIONS_REPLACEMENT_KEY)
