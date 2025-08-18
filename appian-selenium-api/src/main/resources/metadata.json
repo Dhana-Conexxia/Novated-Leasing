@@ -2220,6 +2220,14 @@
                 {
                     "label": "xpathRelativeSectionValidationMessage",
                     "value": ".//div[contains(@class,'MessageLayout---message')]/descendant::p"
+                },
+                {
+                    "label": "xpathRelativeFileUploadFieldFile",
+                    "value": ".//span[contains(@class,'FileInfoView---file-name')]"
+                },
+                {
+                    "label": "xpathRelativeFileUploadFieldExtension",
+                    "value": ".//span[contains(@class,'FileInfoView---file-size')]"
                 }
             ]
         }
