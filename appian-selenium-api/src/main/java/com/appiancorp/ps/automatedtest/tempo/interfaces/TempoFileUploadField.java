@@ -38,6 +38,8 @@ public final class TempoFileUploadField extends AbstractTempoField {
             Settings.getByConstant("xpathRelativeFileUploadFieldInput");
     private static final String XPATH_RELATIVE_FILE_UPLOAD_FIELD_FILE =
             Settings.getByConstant("xpathRelativeFileUploadFieldFile");
+    private static final String XPATH_RELATIVE_FILE_UPLOAD_FIELD_EXT =
+            Settings.getByConstant("xpathRelativeFileUploadFieldExtension");
     private static final String XPATH_RELATIVE_FILE_UPLOAD_FIELD_REMOVE_LINK = Settings
             .getByConstant("xpathRelativeFileUploadFieldRemoveLink");
     private static final String XPATH_ABSOLUTE_FILE_UPLOAD_FIELD_WAITING = XPATH_ABSOLUTE_FILE_UPLOAD_FIELD_LABEL +
@@ -141,7 +143,14 @@ public final class TempoFileUploadField extends AbstractTempoField {
             LOG.debug("FILE UPLOAD FIELD VALUE : " + values);
         }
 
-        if (Settings.getVersion().compareTo(new Version(17, 1)) >= 0) {
+        Version ver = Settings.getVersion();
+        if (ver.compareTo(new Version(25, 4)) >= 0 && values.length > 0) {
+            WebElement info = fieldLayout.findElement(By.xpath(xpathFormat(XPATH_RELATIVE_FILE_UPLOAD_FIELD_EXT)));
+            String extension = info.getText().split("\\s")[0];
+            for (int i = 0; i < webElements.size(); i++) {
+                values[i] += "." + extension.toLowerCase();
+            }
+        } else {
             for (int i = 0; i < webElements.size(); i++) {
                 String filename = values[i].split("\\n")[0];
                 String extension = values[i].split("\\n")[1].split("\\s")[0];
