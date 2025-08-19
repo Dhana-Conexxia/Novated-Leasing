@@ -1,7 +1,6 @@
 package com.appiancorp.ps.automatedtest.tempo.interfaces;
 
 import com.appiancorp.ps.automatedtest.common.Settings;
-import com.appiancorp.ps.automatedtest.common.Version;
 import com.appiancorp.ps.automatedtest.exception.ExceptionBuilder;
 import com.google.common.base.Strings;
 import org.apache.commons.io.FilenameUtils;
@@ -143,9 +142,13 @@ public final class TempoFileUploadField extends AbstractTempoField {
             LOG.debug("FILE UPLOAD FIELD VALUE : " + values);
         }
 
-        Version ver = Settings.getVersion();
-        if (ver.compareTo(new Version(25, 4)) >= 0 && values.length > 0) {
-            WebElement info = fieldLayout.findElement(By.xpath(xpathFormat(XPATH_RELATIVE_FILE_UPLOAD_FIELD_EXT)));
+        WebElement info = null;
+        try {
+            // Only multiple file upload
+            info = fieldLayout.findElement(By.xpath(xpathFormat(XPATH_RELATIVE_FILE_UPLOAD_FIELD_EXT)));
+        } catch (Exception ignored) {
+        }
+        if (info != null) {
             String extension = info.getText().split("\\s")[0];
             for (int i = 0; i < webElements.size(); i++) {
                 values[i] += "." + extension.toLowerCase();
