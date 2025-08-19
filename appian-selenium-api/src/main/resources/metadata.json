@@ -2223,7 +2223,7 @@
                 },
                 {
                     "label": "xpathRelativeFileUploadFieldFile",
-                    "value": ".//span[contains(@class,'FileInfoView---file-name')]"
+                    "value": ".//*[contains(@class,'FileInfoView---file-name') or contains(@class,'FileUploadWidget---file_metadata')]"
                 },
                 {
                     "label": "xpathRelativeFileUploadFieldExtension",
