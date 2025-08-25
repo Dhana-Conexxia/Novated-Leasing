@@ -43,7 +43,7 @@ RUN mkdir -p ${HOME}/src/test/resources/configs
 RUN rm -rf cucumber-for-appian
 
 # Install maven
-RUN curl -fsSL https://downloads.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -o /tmp/maven.tar.gz && \
+RUN curl -fsSL https://downloads.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz -o /tmp/maven.tar.gz && \
     mkdir -p /opt/maven && \
     tar -xzvf /tmp/maven.tar.gz -C /opt/maven --strip-components=1 && \
     rm -f /tmp/maven.tar.gz
