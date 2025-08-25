@@ -36,7 +36,8 @@ public abstract class AbstractTest {
 
     public static boolean isRemoteBrowser() {
         return (isBrowser(Constants.RemoteDriver.REMOTE_CHROME.name()) ||
-                isBrowser(Constants.RemoteDriver.REMOTE_FIREFOX.name()));
+                isBrowser(Constants.RemoteDriver.REMOTE_FIREFOX.name()) ||
+                isBrowser(Constants.RemoteDriver.REMOTE_EDGE.name()));
     }
 
     @BeforeAll
