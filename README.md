@@ -33,5 +33,5 @@ Automated tests will run nightly and upon a passing run, if there were any chang
 The latest packages can be found in
 the [GitLab Package Registry](https://gitlab.com/appian-oss/appian-selenium-api/-/packages)
 
-If you prefer a all-in-one Docker image, that can be found in
+If you prefer an all-in-one Docker image, that can be found in
 the [Container Registry](https://gitlab.com/appian-oss/appian-selenium-api/container_registry)

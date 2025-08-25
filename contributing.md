@@ -4,7 +4,7 @@
 
 Appian Selenium API requires a minimum of Java 11 and can be built with `./gradlew build`
 
-While Java 11 is the minimum version supported, we aim to retain compatability with newer Java versions as well.
+While Java 11 is the minimum version supported, we aim to retain compatibility with newer Java versions as well.
 An automated check will run for all MRs to ensure any changes compile with future Java versions.
 
 ## Running the Tests
@@ -28,6 +28,7 @@ curl -f --header "PRIVATE-TOKEN: <GITLAB_TOKEN>" "https://gitlab.com/api/v4/proj
     * (optional) DOWNLOADS_DIR - Path on your local machine that should be mapped to the downloads directory
     * (optional) FITNESSEROOT_DIR - Path on your local machine that should be mapped to a Fitnesse root directory
     * (optional) CUCUMBERTEST_DIR - Path on your local machine that should be mapped to a directory with cucumber tests
+    * (optional) BROWSER - Browser type to test against. This only controls the Selenium image used, you will still need to pass the appropriate environment variable to your tests when running (i.e. browser=REMOTE_FIREFOX)
 4. Bring up the docker containers using `docker-compose up`
     * If you get errors about being unable to create directories, ensure the default directories (screenshots, downloads, FitNesseRoot, cucumber) exist before continuing
 
