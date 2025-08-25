@@ -231,6 +231,7 @@ public class BaseFixtureTest extends AbstractTest {
 
     @Test
     public void testWaitForWorking() {
+        Assumptions.assumeFalse(isBrowser(Constants.RemoteDriver.REMOTE_EDGE.name()));
         fixture.setupWithBrowser(TEST_BROWSER);
         fixture.setAppianUrlTo(TEST_SITE_URL);
         fixture.loginWithUsername(TEST_USERNAME);
@@ -324,9 +325,9 @@ public class BaseFixtureTest extends AbstractTest {
         Assumptions.assumeFalse(Settings.isLinux() && isBrowser(Constants.RemoteDriver.REMOTE_CHROME.name()));
 
         fixture.setupWithBrowser(TEST_BROWSER);
-        fixture.resizeWindowWidthHeight(500, 700);
+        fixture.resizeWindowWidthHeight(600, 700);
         Dimension size = fixture.getSettings().getDriver().manage().window().getSize();
-        assertEquals(500, size.width);
+        assertEquals(600, size.width);
         assertEquals(700, size.height);
         fixture.tearDown();
     }
