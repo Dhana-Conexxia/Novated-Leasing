@@ -250,6 +250,8 @@ public class TempoFieldFactory extends AppianObject implements
             return TempoTextField.getInstance(settings);
         } else if (TempoEncryptedTextField.isType(fieldLayout)) {
             return TempoEncryptedTextField.getInstance(settings);
+        } else if (TempoStyledTextField.isType(fieldLayout)) {
+            return TempoStyledTextField.getInstance(settings);
         } else if (TempoParagraphField.isType(fieldLayout)) {
             return TempoParagraphField.getInstance(settings);
         } else if (TempoDropdownField.isType(fieldLayout)) {

@@ -2126,6 +2126,10 @@
                 {
                     "label": "xpathAbsoluteMenuLink",
                     "value": "//div[starts-with(@class, 'TempoSiteMenuTab') and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
+                },
+                {
+                    "label": "xpathRelativeStyledTextFieldInput",
+                    "value": ".//div[contains(@class,'StyledTextEditor---textarea')]"
                 }
             ]
         },
