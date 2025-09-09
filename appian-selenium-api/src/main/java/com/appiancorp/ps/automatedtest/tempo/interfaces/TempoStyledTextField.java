@@ -30,6 +30,7 @@ public final class TempoStyledTextField extends TempoTextField {
 
         WebElement textField = fieldLayout.findElement(By.xpath(XPATH_RELATIVE_STYLED_TEXT_FIELD_INPUT));
         textField.clear();
+        textField.click();
         // For some specific browsers ie Firefox, sendKeys doesn't produce the proper formatting in the box
         // **bold** will enter the literal string "**bold**" instead of a bolded word. This seems to fix it
         for (char c : fieldValue.toCharArray()) {
@@ -40,7 +41,6 @@ public final class TempoStyledTextField extends TempoTextField {
     @Override
     public String capture(WebElement fieldLayout, String... params) {
         String value = fieldLayout.findElement(By.xpath(XPATH_RELATIVE_STYLED_TEXT_FIELD_INPUT))
-                        .findElement(By.tagName("p"))
                         .getAttribute("innerHTML");
         if (LOG.isDebugEnabled()) {
             LOG.debug("STYLED TEXT FIELD VALUE : " + value);

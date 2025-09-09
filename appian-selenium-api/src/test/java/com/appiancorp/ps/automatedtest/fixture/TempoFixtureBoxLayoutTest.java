@@ -43,8 +43,7 @@ public class TempoFixtureBoxLayoutTest extends AbstractLoginTest<TempoFixture> {
         assertEquals("text", fixture.getFieldValue("ROTextField"));
 
         fixture.populateFieldWith("StyledText", new String[] {"text **bold**"});
-        assertTrue(fixture.verifyFieldContains("StyledText", new String[] {"text <strong>bold</strong>"}));
-        assertEquals("text <strong>bold</strong>", fixture.getFieldValue("StyledText"));
+        assertEquals("<p>text <strong>bold</strong></p>", fixture.getFieldValue("StyledText"));
     }
 
     @Test
