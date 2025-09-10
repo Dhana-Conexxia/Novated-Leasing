@@ -826,10 +826,10 @@ public class TempoFixture extends BaseFixture {
      *                          If multiple related actions contain the same name, then the first will be selected
      */
     public void clickOnRecordRelatedAction(String relatedActionName) {
-        if (TempoRecordRelatedAction.getInstance(settings).waitForReturn(true, "More actions")) {
+        if (!TempoRecordRelatedAction.getInstance(settings).waitForReturn(true, relatedActionName)) {
             TempoRecordRelatedAction.getInstance(settings).click(false, "More actions");
+            TempoRecordRelatedAction.getInstance(settings).waitFor(relatedActionName);
         }
-        TempoRecordRelatedAction.getInstance(settings).refreshAndWaitFor(relatedActionName);
         TempoRecordRelatedAction.getInstance(settings).click(relatedActionName);
     }
 
