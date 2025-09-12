@@ -252,4 +252,12 @@ public class TempoDropdownField extends AbstractTempoField {
         }
         return dropdownIDs;
     }
+    
+    @Override
+    public void scrollDown() {
+        // Using the pagedown key to scroll down in dropdown menus can create issues when a searchbar is present
+        WebElement dropdownList = settings.getDriver().findElement(By.xpath(XPATH_HIDDEN_DROPDOWN_LIST));
+        ((org.openqa.selenium.JavascriptExecutor) settings.getDriver())
+            .executeScript("arguments[0].scrollTop += 400;", dropdownList);
+    }
 }

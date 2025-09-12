@@ -443,6 +443,33 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
                     fixture.getFieldValue("Long MultipleDropdownField"));
         }
     }
+    
+    @Test
+    public void testSearchBoxMultipleDropdownFieldLong() throws Exception {
+        // Test regular multiple dropdown functionality
+        int[] indices = new int[] {1, 145, 123};
+        int[] secondChoiceIndices = new int[] {2, 147, 150};
+
+        for (int i = 0; i < indices.length; i++) {
+            fixture.clearField("Long SearchBoxMultipleDropdownField");
+            fixture.populateFieldWith("Long SearchBoxMultipleDropdownField",
+                new String[] {"Option " + indices[i], "[" + secondChoiceIndices[i] + "]"});
+            assertTrue(fixture.verifyFieldContains("Long SearchBoxMultipleDropdownField",
+                new String[] {"Option " + indices[i], "[" + secondChoiceIndices[i] + "]"}));
+            assertEquals("Option " + indices[i] + ",Option " + secondChoiceIndices[i],
+                fixture.getFieldValue("Long SearchBoxMultipleDropdownField"));
+        }
+
+        // Test searchbox functionality
+        fixture.populateDropdownSearchBoxWith("Long SearchBoxMultipleDropdownField", "Option 27");
+        assertTrue(fixture.verifyTextIsPresent("Option 27"));
+        assertTrue(fixture.verifyTextIsNotPresent("Option 2"));
+        try {
+            fixture.populateDropdownSearchBoxWith("Long SearchBoxMultipleDropdownField", "Not an option");
+            fail("Should have thrown illegal argument exception");
+        } catch (IllegalArgumentException e) {
+        }
+    }
 
     @Test
     public void testNoPlaceholderDropdownField() throws Exception {
