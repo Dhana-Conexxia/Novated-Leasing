@@ -85,7 +85,7 @@ public class TempoPickerField extends AbstractTempoField {
                 Duration.ofSeconds(settings.getTimeoutSeconds())).until(
                         ExpectedConditions
                                 .elementToBeClickable(By.xpath(xpathFormat(suggestionXpath, fieldValue, fieldValue))));
-        suggestion.click();
+        clickElement(suggestion);
         TempoPickerFieldSelection.getInstance(settings).waitFor(fieldLayout, fieldValue);
     }
 
