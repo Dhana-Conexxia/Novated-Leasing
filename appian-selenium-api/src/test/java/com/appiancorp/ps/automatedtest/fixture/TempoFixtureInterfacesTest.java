@@ -442,6 +442,8 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
             assertEquals("Option " + indices[i] + ",Option " + secondChoiceIndices[i],
                     fixture.getFieldValue("Long MultipleDropdownField"));
         }
+
+        fixture.clearField("Long MultipleDropdownField");
     }
     
     @Test
@@ -460,15 +462,19 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
                 fixture.getFieldValue("Long SearchBoxMultipleDropdownField"));
         }
 
+        fixture.clearField("Long SearchBoxMultipleDropdownField");
+
         // Test searchbox functionality
-        fixture.populateDropdownSearchBoxWith("Long SearchBoxMultipleDropdownField", "Option 27");
-        assertTrue(fixture.verifyTextIsPresent("Option 27"));
-        assertTrue(fixture.verifyTextIsNotPresent("Option 2"));
+        fixture.populateDropdownSearchBoxWith("Long SearchBoxMultipleDropdownField", "Option 37");
+        assertTrue(fixture.verifyTextIsPresent("Option 37"));
+        assertTrue(fixture.verifyTextIsNotPresent("Option 7"));
         try {
             fixture.populateDropdownSearchBoxWith("Long SearchBoxMultipleDropdownField", "Not an option");
             fail("Should have thrown illegal argument exception");
         } catch (IllegalArgumentException e) {
         }
+
+        fixture.clearField("Long SearchBoxMultipleDropdownField");
     }
 
     @Test
