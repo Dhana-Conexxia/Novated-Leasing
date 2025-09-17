@@ -1,6 +1,7 @@
 package com.appiancorp.ps.automatedtest.tempo.interfaces;
 
 import com.appiancorp.ps.automatedtest.common.Settings;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -259,5 +260,11 @@ public class TempoDropdownField extends AbstractTempoField {
         WebElement dropdownList = settings.getDriver().findElement(By.xpath(XPATH_HIDDEN_DROPDOWN_LIST));
         ((org.openqa.selenium.JavascriptExecutor) settings.getDriver())
             .executeScript("arguments[0].scrollTop += 250;", dropdownList);
+        
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // Ignore interruptions
+        }
     }
 }
