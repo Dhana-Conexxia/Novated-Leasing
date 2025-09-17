@@ -443,6 +443,12 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
                     fixture.getFieldValue("Long MultipleDropdownField"));
         }
 
+        fixture.populateFieldWith("Long MultipleDropdownField",
+            new String[] {"Option 66", "Option 88"});
+        fixture.clearFieldOf("Long MultipleDropdownField", new String[] {"Option 66"});
+        assertTrue(fixture.verifyFieldContains("Long MultipleDropdownField", new String[] {"Option 88"}));
+        assertFalse(fixture.verifyFieldContains("Long MultipleDropdownField", new String[] {"Option 66"}));
+
         fixture.clearField("Long MultipleDropdownField");
     }
     
@@ -561,6 +567,18 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
             fail("Should have thrown illegal argument exception");
         } catch (IllegalArgumentException e) {
         }
+    }
+
+    @Test
+    public void testMultipleDropdownFieldClearOf() throws Exception {
+        fixture.populateFieldWith("MultipleDropdownField", new String[] {"Option 1", "Option 2"});
+        assertTrue(fixture.verifyFieldContains("MultipleDropdownField", new String[] {"Option 1", "Option 2"}));
+
+        fixture.clearFieldOf("MultipleDropdownField", new String[] {"Option 1"});
+        assertTrue(fixture.verifyFieldContains("MultipleDropdownField", new String[] {"Option 2"}));
+        assertFalse(fixture.verifyFieldContains("MultipleDropdownField", new String[] {"Option 1"}));
+
+        fixture.clearField("MultipleDropdownField");
     }
 
     /**** Checkbox Field ****/

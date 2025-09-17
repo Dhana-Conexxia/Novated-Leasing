@@ -73,10 +73,8 @@ public class TempoDropdownField extends AbstractTempoField {
                 for (WebElement selectedItem : selectedItems) {
                     boolean isSelected =
                             Boolean.parseBoolean(selectedItem.getAttribute(XPATH_DROPDOWN_OPTION_SELECTED));
-                    boolean isChecked = atMostVersion(23.3) &&
-                            Boolean.parseBoolean(selectedItem.getAttribute(XPATH_DROPDOWN_OPTION_CHECKED));
 
-                    if ((isSelected || isChecked) && !values.contains(selectedItem.getText())) {
+                    if (isSelected && !values.contains(selectedItem.getText())) {
                         values.add(selectedItem.getText());
                     }
                 }
@@ -166,9 +164,7 @@ public class TempoDropdownField extends AbstractTempoField {
                 for (Iterator<WebElement> iterator = listItems.iterator(); iterator.hasNext();) {
                     WebElement next = iterator.next();
                     boolean isSelected = Boolean.parseBoolean(next.getAttribute(XPATH_DROPDOWN_OPTION_SELECTED));
-                    boolean isChecked = atMostVersion(23.3) &&
-                            Boolean.parseBoolean(next.getAttribute(XPATH_DROPDOWN_OPTION_CHECKED));
-                    if (isSelected || isChecked) {
+                    if (isSelected) {
                         WebDriverWait webDriverWait = new WebDriverWait(settings.getDriver(),
                                 Duration.ofSeconds(settings.getTimeoutSeconds()));
                         webDriverWait.until(ExpectedConditions.elementToBeClickable(next));
@@ -185,6 +181,52 @@ public class TempoDropdownField extends AbstractTempoField {
                 } else {
                     listItems = newListItems;
                 }
+            }
+        }
+        unfocus();
+    }
+
+    public void clearOf(WebElement fieldLayout, String[] fieldValues) {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("MULTIPLE DROPDOWN FIELD CLEAR OF : " + String.join(", ", fieldValues));
+        }
+
+        WebElement selectField = fieldLayout.findElement(By.xpath(XPATH_RELATIVE_DROPDOWN_FIELD_INPUT));
+        
+        if (!isMultipleDropdown(selectField)) {
+            throw new IllegalArgumentException("clearOf is only supported for Multiple Dropdown Fields");
+        }
+
+        WebDriverWait webDriverWait = new WebDriverWait(settings.getDriver(),
+            Duration.ofSeconds(settings.getTimeoutSeconds()));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(selectField));
+        selectField.click();
+        List<WebElement> listItems = getHiddenDropdownListItems(selectField);
+
+        boolean reachedBottom = false;
+        while (!reachedBottom) {
+            for (Iterator<WebElement> iterator = listItems.iterator(); iterator.hasNext();) {
+                WebElement next = iterator.next();
+                boolean isSelected = Boolean.parseBoolean(next.getAttribute(XPATH_DROPDOWN_OPTION_SELECTED));
+                
+                if (isSelected) {
+                    String itemText = next.getText();
+                    for (String fieldValue : fieldValues) {
+                        if (itemText.equals(fieldValue)) {
+                            webDriverWait.until(ExpectedConditions.elementToBeClickable(next));
+                            next.click();
+                            break;
+                        }
+                    }
+                }
+            }
+
+            scrollDown();
+            List<WebElement> newListItems = getHiddenDropdownListItems(selectField);
+            if (listItems.contains(newListItems.get(newListItems.size() - 1))) {
+                reachedBottom = true;
+            } else {
+                listItems = newListItems;
             }
         }
         unfocus();

@@ -145,8 +145,12 @@ public class TempoFieldFactory extends AppianObject implements
             if (tempoField instanceof TempoPickerField) {
                 scrollIntoView(fieldLayout);
                 ((TempoPickerField) tempoField).clearOf(fieldLayout, fieldValues);
+            } else if (tempoField instanceof TempoDropdownField) {
+                scrollIntoView(fieldLayout);
+                ((TempoDropdownField) tempoField).clearOf(fieldLayout, fieldValues);
             } else {
-                throw new IllegalArgumentException("A PICKER field is the only valid option for 'clear of'");
+                throw new IllegalArgumentException("A Picker field or Multiple Dropdown field are the only valid " +
+                        "options for 'clear of'");
             }
         } catch (Exception e) {
             throw ExceptionBuilder.build(e, settings, "Clear Field of");
