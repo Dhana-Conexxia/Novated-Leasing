@@ -291,6 +291,42 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
     }
 
     @Test
+    public void testEditableGridCellValidations() throws Exception {
+        // > 10 characters causes validation message to appear
+        fixture.populateGridColumnRowWithValue("EditableGrid", "TextField", "[1]", "This text is too long");
+        assertEquals(
+            "Text field cannot exceed 10 characters",
+            fixture.getGridColumnRowValidationMessage("EditableGrid", "TextField", "[1]")
+        );
+
+        // < 0 causes validation message to appear
+        fixture.populateGridColumnRowWithValue("EditableGrid", "IntegerField", "[1]", "0");
+        assertEquals(
+            "Integer must be greater than 0",
+            fixture.getGridColumnRowValidationMessage("EditableGrid", "IntegerField", "[1]")
+        );
+
+        // > 100 causes validation message to appear
+        fixture.populateGridColumnRowWithValue("EditableGrid", "DecimalField", "[1]", "150");
+        assertEquals(
+            "Decimal value cannot exceed 100",
+            fixture.getGridColumnRowValidationMessage("EditableGrid", "DecimalField", "[1]")
+        );
+
+        // date in the future causes validation message to appear
+        fixture.populateGridColumnRowWithValue("EditableGrid", "DateField", "[1]", "12/31/2050");
+        assertEquals(
+            "Date cannot be in the future",
+            fixture.getGridColumnRowValidationMessage("EditableGrid", "DateField", "[1]")
+        );
+
+        fixture.clearGridColumnRow("EditableGrid", "TextField", "[1]");
+        fixture.clearGridColumnRow("EditableGrid", "IntegerField", "[1]");
+        fixture.clearGridColumnRow("EditableGrid", "DecimalField", "[1]");
+        fixture.clearGridColumnRow("EditableGrid", "DateField", "[1]");
+    }
+
+    @Test
     public void testParagraphPopulateNewLine() throws Exception {
         fixture.clearField("ParagraphField[1]");
         fixture.populateFieldWith("ParagraphField", new String[] {"First Line\r\nSecond Line"});

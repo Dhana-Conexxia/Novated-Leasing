@@ -30,6 +30,7 @@ import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGeneralizedText;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGrid;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridAddRow;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridCell;
+import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridCellValidation;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridColumn;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridHeaderIndex;
 import com.appiancorp.ps.automatedtest.tempo.interfaces.TempoGridNavigation;
@@ -2089,6 +2090,20 @@ public class TempoFixture extends BaseFixture {
     public boolean verifyGridColumnRowIsNotBlank(String gridName, String columnName, String rowNum) {
         TempoGridCell.getInstance(settings).waitFor(gridName, columnName, rowNum);
         return TempoGridCell.getInstance(settings).isNotBlank(gridName, columnName, rowNum);
+    }
+
+    /**
+     * Returns the validation message from a grid column row.<br>
+     * <br>
+     * FitNesse Example: <code>| get grid column row | GRID_NAME | COLUMN_NAME | ROW_NUM | validation message |</code><br>
+     *
+     * @param gridName Grid name or index
+     * @param columnName Column name or index
+     * @param rowNum Row number or index
+     * @return Validation message from the grid column row
+     */
+    public String getGridColumnRowValidationMessage(String gridName, String columnName, String rowNum) {
+        return TempoGridCellValidation.getInstance(settings).capture(gridName, columnName, rowNum);
     }
 
     /**
