@@ -2234,6 +2234,15 @@
                     "value": ".//span[contains(@class,'FileInfoView---file_size')]"
                 }
             ]
+        },
+        {
+            "version": "26.1",
+            "locales": [
+
+            ],
+            "byConstants": [
+
+            ]
         }
     ]
 }
