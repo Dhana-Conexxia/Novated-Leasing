@@ -299,7 +299,7 @@ public class TempoFixtureInterfacesTest extends AbstractLoginTest<TempoFixture> 
             fixture.getGridColumnRowValidationMessage("EditableGrid", "TextField", "[1]")
         );
 
-        // < 0 causes validation message to appear
+        // <= 0 causes validation message to appear
         fixture.populateGridColumnRowWithValue("EditableGrid", "IntegerField", "[1]", "0");
         assertEquals(
             "Integer must be greater than 0",
