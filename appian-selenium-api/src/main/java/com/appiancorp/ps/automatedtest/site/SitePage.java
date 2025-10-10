@@ -156,13 +156,16 @@ public final class SitePage extends AppianObject implements WaitFor, Clickable, 
         siteGroup.click();
     }
 
-    public void clickOnSitePageInGroup(String sitePage) {
-        (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath(xpathFormat(XPATH_RELATIVE_SITE_PAGE_LINK_IN_SITE_GROUP, sitePage))));
+    public void clickOnSitePageInGroup(String sitePage, String groupName) {
+        // Combine group and page XPaths to only find the page link that is under the group
+        String groupXPath = xpathFormat(XPATH_RELATIVE_SITE_GROUP, groupName);
+        String pageXPath = xpathFormat(XPATH_RELATIVE_SITE_PAGE_LINK_IN_SITE_GROUP, sitePage);
+        String pageUnderGroupXPath = groupXPath + "//following-sibling::*" + pageXPath;
 
-        WebElement sitePageElement = settings.getDriver()
-                .findElement(By.xpath(xpathFormat(XPATH_RELATIVE_SITE_PAGE_LINK_IN_SITE_GROUP, sitePage)));
+        (new WebDriverWait(settings.getDriver(), Duration.ofSeconds(settings.getTimeoutSeconds()))).until(
+                ExpectedConditions.elementToBeClickable(By.xpath(pageUnderGroupXPath)));
+
+        WebElement sitePageElement = settings.getDriver().findElement(By.xpath(pageUnderGroupXPath));
         this.clickElement(sitePageElement);
     }
 
