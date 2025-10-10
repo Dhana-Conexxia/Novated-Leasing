@@ -76,7 +76,7 @@ public class SitesFixture extends TempoFixture {
     public void clickOnSitePageInGroup(String sitePage, String group) {
         if (SitePage.getInstance(settings).atLeastVersion(23.3)) {
             SitePage.getInstance(settings).clickOnSiteGroup(group);
-            SitePage.getInstance(settings).clickOnSitePageInGroup(sitePage);
+            SitePage.getInstance(settings).clickOnSitePageInGroup(sitePage, group);
         } else {
             throw new UnsupportedOperationException(
                     "clickOnSitePageInGroup is only supported for version 23.3 and later");
