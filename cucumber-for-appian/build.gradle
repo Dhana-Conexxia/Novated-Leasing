@@ -1,6 +1,8 @@
+
 plugins {
     id 'java'
     id 'checkstyle'
+    id 'idea'
 }
 
 checkstyle {
@@ -41,10 +43,22 @@ dependencies {
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.11.0'
     testImplementation 'io.cucumber:cucumber-junit:7.21.1'
     testImplementation 'io.cucumber:cucumber-picocontainer:7.21.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.24.3'
+    //implementation 'org.slf4j:slf4j-log4j12:2.0.9'
+    testImplementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.14.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
+    implementation 'org.slf4j:slf4j-simple:2.0.17'
 
     implementation 'io.cucumber:cucumber-java:7.21.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.24.3'
     implementation project(':appian-selenium-api')
+
+    // Masterthought cucumber-reporting (for rich HTML reports)
+    testImplementation 'net.masterthought:cucumber-reporting:5.8.0'
+
+
+    // JUnit (if not already added)
+    testImplementation 'junit:junit:4.13.2'
 }
 
 def finalDestinationDir = file("${buildDir}/RELEASE-FILES")
@@ -146,7 +160,7 @@ configurations {
     }
 }
 
-task cucumber() {
+/*task cucumber() {
     dependsOn assemble, testClasses
     doLast {
         javaexec {
@@ -155,4 +169,60 @@ task cucumber() {
             args = ['--plugin', 'pretty', '--plugin', 'junit:results/cucumber-junit-report.xml', '--glue', 'com.appiancorp.ps.cucumber', 'src/test/resources']
         }
     }
+}*/
+
+
+task cucumber(type: JavaExec) {
+    dependsOn testClasses
+    mainClass.set("io.cucumber.core.cli.Main")
+    classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+    args = [
+            '--plugin', 'pretty',
+            '--plugin', 'html:build/reports/cucumber/',
+            '--plugin', 'json:build/reports/cucumber/cucumber.json',
+            '--plugin', 'com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:',
+            '--glue', 'testrunner',
+            'src/test/resources/features'
+    ]
+}
+
+test {
+    // Use JUnit 4 to support @RunWith(Cucumber.class)
+    useJUnit()
+
+    // Display detailed log output
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat "full"
+    }
+    // Generate cucumber JSON report
+    systemProperty "cucumber.plugin", "pretty, json:build/reports/cucumber/cucumber.json"
+    testLogging {
+        events "passed", "failed", "skipped"
+    }
+    // Cucumber reporting + Extent + JSON
+    systemProperty "cucumber.plugin",
+            "pretty, html:build/reports/tests/cucumber-html-report, json:build/reports/tests/cucumber.json, com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+
+    // Ensure reports go to build/reports/ExtendReport (optional)
+    systemProperty "extent.reporter.spark.start", "true"
+    systemProperty "extent.reporter.spark.out", "build/reports/ExtendReport/ExtentReport.html"
+    systemProperty "extent.reporter.spark.config", "src/test/resources/extent-config.xml"
+    systemProperty "timestamp", new Date().format("yyyy-MM-dd_HH-mm-ss")
+}
+
+tasks.register('generateCucumberReport', JavaExec) {
+    dependsOn test
+    mainClass = 'util.CucumberReportGenerator'
+    classpath = sourceSets.test.runtimeClasspath
+}
+tasks.test {
+    useJUnit()
+    // Optional: delete previous reports before running
+    doFirst {
+        delete fileTree("${buildDir}/reports") {
+            include '**/*'
+        }
+    }
+    outputs.upToDateWhen { false } // force tests to always re-run
 }

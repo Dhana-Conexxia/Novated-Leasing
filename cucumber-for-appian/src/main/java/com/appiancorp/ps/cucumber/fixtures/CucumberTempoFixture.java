@@ -925,6 +925,13 @@ public class CucumberTempoFixture {
         fixture.clickOnRecordActionFieldMenuAction(indexOfField, action);
     }
 
+    @Given("I click on text \"([^\"]*)\"$")
+    public void clickOnText(String string) {
+        //fixture.clickOnText(String.valueOf(text));
+        //fixture.clickOnText(String.valueOf(string));
+        fixture.clickOnText(String.valueOf(string));
+    }
+
     @Given("^I populate dropdown \"([^\"]*)\" search box with \"([^\"]*)\"$")
     public void populateDropdownSearchBoxWith(String fieldName, String searchValue) {
         fixture.populateDropdownSearchBoxWith(fieldName, searchValue);
