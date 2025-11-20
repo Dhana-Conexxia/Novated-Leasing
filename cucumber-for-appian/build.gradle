@@ -205,9 +205,6 @@ test {
             "pretty, html:build/reports/tests/cucumber-html-report, json:build/reports/tests/cucumber.json, com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
     // Ensure reports go to build/reports/ExtendReport (optional)
-    systemProperty "extent.reporter.spark.start", "true"
-    systemProperty "extent.reporter.spark.out", "build/reports/ExtendReport/ExtentReport.html"
-    systemProperty "extent.reporter.spark.config", "src/test/resources/extent-config.xml"
     systemProperty "timestamp", new Date().format("yyyy-MM-dd_HH-mm-ss")
 }
 
@@ -217,12 +214,7 @@ tasks.register('generateCucumberReport', JavaExec) {
     classpath = sourceSets.test.runtimeClasspath
 }
 tasks.test {
-    useJUnit()
-    // Optional: delete previous reports before running
-    doFirst {
-        delete fileTree("${buildDir}/reports") {
-            include '**/*'
-        }
+    useJUnit(){
     }
     outputs.upToDateWhen { false } // force tests to always re-run
 }

@@ -7,27 +7,22 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import utils.ReportArchiver;
 
-
-
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {
-                "src/test/resources",               // includes general features
-                "src/test/resources/features"       // includes specific features folder
+                "src/test/resources/features/Regression"
         },
         glue = {"com.appiancorp.ps.cucumber.fixtures"},
         plugin = {
-                "pretty",
-                "html:build/reports/cucumber/html",
-                "html:reports/ExtentReport/cucumber-report.html",
-                "json:reports/ExtentReport/cucumber-report.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" // Extent report
-
+        "pretty",
+        "html:reports/ExtentReport/latest/cucumber-report.html",
+        "json:reports/ExtentReport/latest/cucumber-report.json",
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        tags = "@Application", // Optional – remove or adjust if you want to run all
+        tags = "@Regression",
         monochrome = true
 )
-public class RunCucumberForAppianTest {
+public class RunRegressionSuite {
     @BeforeClass
     public static void beforeTests() {
         System.out.println(">>> Starting Cucumber Tests...");

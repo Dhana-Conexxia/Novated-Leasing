@@ -1,4 +1,4 @@
-@Application
+@Application1
 Feature: feature file that creates a New Quote in Customer-Hub as an Driver
 
   Background: Login to Appian environment
