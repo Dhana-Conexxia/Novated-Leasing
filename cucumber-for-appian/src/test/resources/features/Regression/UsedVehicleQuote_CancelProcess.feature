@@ -8,7 +8,7 @@ Feature: feature file that creates a New Quote in Customer-Hub as an Driver and 
     And I set appian locale to "en_GB"
     Given I login with username "dhana.driver@yopmail.com" and password "ORIX@2025"
 
-  Scenario: Navigate to Request a Quote window from Dashboard
+  Scenario:
     When I click on button "Request a Quote"
     #Select type of quote
     When I click on text "Used Vehicle Quote"

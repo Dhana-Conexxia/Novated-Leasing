@@ -1,0 +1,44 @@
+<extentreports>
+    <configuration>
+        <!-- Theme Options: standard or dark -->
+        <theme>standard</theme>
+
+        <!-- Report title and name -->
+        <encoding>UTF-8</encoding>
+        <documentTitle>Appian Automation Test Report</documentTitle>
+        <reportName>Appian End-to-End Test Execution</reportName>
+
+        <!-- Dashboard look -->
+        <timeStampFormat>dd-MM-yyyy HH:mm:ss</timeStampFormat>
+        <protocol>HTTPS</protocol>
+
+        <!-- Chart visibility and order -->
+        <chartVisibilityOnOpen>true</chartVisibilityOnOpen>
+        <testViewChartLocation>top</testViewChartLocation>
+
+        <!-- Custom styles -->
+        <scripts>
+            <![CDATA[
+        document.querySelector('.logo').innerText = 'Appian Automation';
+        document.querySelector('.logo').style.color = '#004aad';
+      ]]>
+        </scripts>
+
+        <css>
+            <![CDATA[
+        .brand-logo {
+          color: #004aad;
+          font-weight: bold;
+          font-size: 22px;
+        }
+        .test-name {
+          font-size: 16px;
+        }
+        .dashboard-view .card-panel {
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+      ]]>
+        </css>
+    </configuration>
+</extentreports>
