@@ -1,21 +1,20 @@
-@Application1
-Feature: feature file that creates a New Quote in Customer-Hub as an Driver
+@Inprogress
+Feature: Novated Driver completes the full Novated Lease journey for a New Vehicle Dealer
 
   Background: Login to Appian environment
     Given I setup with "CHROME" browser
-    When I set appian URL to "https://orion-devanz.orix.com.au/suite/?signin=native"
+    When I set appian URL to "https://orion-testanz.orix.com.au/suite/sites/customer-hub?signin=native"
     And I set appian version to "25.2"
     And I set appian locale to "en_GB"
-    Given I login with username "nath.thompson85@gmail.com.test" and password "ORIX@2025"
+    Given I login with username "dhana.driver@yopmail.com" and password "ORIX@2025"
 
-  Scenario:
+  Scenario: Novated Driver completes the full Novated Lease journey for a New Vehicle Dealert
     When I click on button "Request a Quote"
-
     #Select type of quote
     When I click on text "ORIX New Vehicle Quote"
     When I populate dropdown "Make" search box with "HYUNDAI"
     When I wait for "10" seconds
-    #When I populate dropdown "Model[2]" search box with "KONA"
+    When I populate dropdown "Model" search box with "KONA"
     When I click on button "Search"
 
     #Seacrh Vehicle section - Select the vehicle type from the table

@@ -1,5 +1,6 @@
-@NotReady
-Feature: To validate the different fields & its functionalities in Driver profile section
+@Regression @Ready
+
+Feature: feature file that creates a New Quote in Customer-Hub as an Driver and cancel the action without completing
 
   Background: Login to Appian environment
     Given I setup with "CHROME" browser
@@ -8,18 +9,18 @@ Feature: To validate the different fields & its functionalities in Driver profil
     And I set appian locale to "en_GB"
     Given I login with username "dhana.driver@yopmail.com" and password "ORIX@2025"
 
-  Scenario:
+  Scenario:New Quote in Customer-Hub as an Driver and cancel the action without completing
     When I click on button "Request a Quote"
     #Select type of quote
     When I click on text "Used Vehicle Quote"
     When I populate field "Model Year" with "2022"
     When I populate dropdown "Make" search box with "BMW"
     When I wait for "7" seconds
-    When I populate dropdown "Model" search box with "3 SERIES"
+    #When I populate dropdown "Model" search box with "3 SERIES"
     When I click on button "Search"
     #Seacrh Vehicle section - Select the vehicle type from the table
     When I wait for "3" seconds
-    When I click on text "Select[9]"
+    When I click on text "Select[12]"
     #Fill Vehicle Details
     When I populate field type "text" named "Registration Number" with "DCT82F"
     When I populate field "State" with "NSW"

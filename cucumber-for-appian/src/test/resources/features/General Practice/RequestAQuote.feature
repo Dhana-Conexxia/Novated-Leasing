@@ -1,4 +1,4 @@
-@Application
+@SMB
 Feature: Sample feature file that interacts with an Appian application2
 
   Background: Login to Appian environment

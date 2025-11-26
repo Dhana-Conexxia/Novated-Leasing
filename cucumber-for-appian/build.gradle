@@ -160,26 +160,14 @@ configurations {
     }
 }
 
-/*task cucumber() {
-    dependsOn assemble, testClasses
-    doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--plugin', 'junit:results/cucumber-junit-report.xml', '--glue', 'com.appiancorp.ps.cucumber', 'src/test/resources']
-        }
-    }
-}*/
-
-
 task cucumber(type: JavaExec) {
     dependsOn testClasses
     mainClass.set("io.cucumber.core.cli.Main")
     classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
     args = [
             '--plugin', 'pretty',
-            '--plugin', 'html:build/reports/cucumber/',
-            '--plugin', 'json:build/reports/cucumber/cucumber.json',
+            /*'--plugin', 'html:build/reports/cucumber/',
+            '--plugin', 'json:build/reports/cucumber/cucumber.json',*/
             '--plugin', 'com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:',
             '--glue', 'testrunner',
             'src/test/resources/features'
@@ -205,6 +193,9 @@ test {
             "pretty, html:build/reports/tests/cucumber-html-report, json:build/reports/tests/cucumber.json, com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 
     // Ensure reports go to build/reports/ExtendReport (optional)
+    systemProperty "extent.reporter.spark.start", "true"
+    systemProperty "extent.reporter.spark.out", "build/reports/ExtendReport/ExtentReport.html"
+    systemProperty "extent.reporter.spark.config", "src/test/resources/extent-config.xml"
     systemProperty "timestamp", new Date().format("yyyy-MM-dd_HH-mm-ss")
 }
 
@@ -214,7 +205,13 @@ tasks.register('generateCucumberReport', JavaExec) {
     classpath = sourceSets.test.runtimeClasspath
 }
 tasks.test {
-    useJUnit(){
+    useJUnit()
+    // Optional: delete previous reports before running
+    doFirst {
+        delete fileTree("${buildDir}/reports") {
+            include '**/*'
+        }
     }
     outputs.upToDateWhen { false } // force tests to always re-run
 }
+

@@ -10,16 +10,17 @@ import utils.ReportArchiver;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {
-                "src/test/resources/features/Regression"
+                "src/test/resources/features/EndtoEnd/E2E_Flow1"
         },
         glue = {"com.appiancorp.ps.cucumber.fixtures"},
         plugin = {
         "pretty",
+        "json:target/cucumber-report/cucumber.json",
         "html:reports/ExtentReport/latest/cucumber-report.html",
         "json:reports/ExtentReport/latest/cucumber-report.json",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        tags = "@Regression",
+        tags = "@Regression and @Ready",
         monochrome = true
 )
 public class RunRegressionSuite {

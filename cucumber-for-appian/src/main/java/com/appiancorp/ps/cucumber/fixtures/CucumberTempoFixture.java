@@ -927,8 +927,6 @@ public class CucumberTempoFixture {
 
     @Given("I click on text \"([^\"]*)\"$")
     public void clickOnText(String string) {
-        //fixture.clickOnText(String.valueOf(text));
-        //fixture.clickOnText(String.valueOf(string));
         fixture.clickOnText(String.valueOf(string));
     }
 

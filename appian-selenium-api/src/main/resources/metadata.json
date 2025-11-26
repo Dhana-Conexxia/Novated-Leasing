@@ -769,12 +769,11 @@
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutLabel",
-                  "value": "//div[contains(@class,'FieldLayout---field_layout')][.//*[self::label or self::span][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ', 'abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]//div[contains(@class,'DropdownWidget---placeholder')] | //div[contains(@class,'FieldLayout---field_layout')][.//*[self::label or self::span][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ', 'abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]//div[contains(@class,'FieldLayout---field_label') or contains(@class,'MultipleFileUploadWidget---upload_field')]"
-                 },
+                    "value": "//*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
+                },
                 {
                     "label": "xpathAbsoluteFieldLayoutPlaceholder",
-                  "value": "//div[contains(@class,'FieldLayout---field_layout')][.//*[self::label or self::span][contains(translate(.,  'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ', 'abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]//div[contains(@class,'DropdownWidget---placeholder')] | //*[(self::label or self::span) and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1] | //div[contains(@class,'FieldLayout---field_layout')][.//*[self::label or self::span][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ', 'abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]//*[contains(@class,'text DatePickerWidget')]"
-
+                    "value": "//*[starts-with(translate(@placeholder,'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/ancestor::div[contains(@class, 'FieldLayout---field_layout')][position()=1]"
                 },
                 {
                     "label": "xpathAbsoluteFieldLayoutInstructions",
@@ -910,7 +909,7 @@
                 },
                 {
                     "label": "xpathRelativeDropdownFieldInput",
-                    "value": "(//div[contains(@class, 'DropdownWidget---dropdown_value')])"
+                    "value": ".//div[contains(@class, 'DropdownWidget---dropdown_value')]"
                 },
                 {
                     "label": "xpathDropdownFieldMultiple",
@@ -1487,6 +1486,10 @@
                 {
                     "label": "xpathAbsoluteSectionFieldLayout",
                     "value": "//div/h2[descendant-or-self::*[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]]/parent::div//*[(self::span or self::label) and contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%2$s)]/parent::div/parent::div"
+                },
+                {
+                    "label": "xpathAbsoluteFieldLayoutLabel",
+                    "value": "//*[(self::label or self::span) and contains(@class, 'FieldLayout---field_label') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]/parent::div/parent::div | (//*[(self::span or self::label)and contains(@id, '_sectionLabel') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),%1$s)]/ancestor::div/parent::div)[20]"
                 },
                 {
                     "label": "xpathAbsoluteCard",
@@ -2189,17 +2192,26 @@
         },
         {
             "version": "25.2",
-            "locales":[
+            "locales": [
+                
             ],
             "byConstants": [
+
               {
-              "label": "xpathAbsoluteDropdownSearchBoxField",
-              "value": "//div[contains(@class, 'DropdownWidget---search_box_wrapper')]"
-            },
+                "label": "xpathAbsoluteCard",
+                "value": "//div[contains(@class, 'CardLayout')]//span[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑÇ','abcdefghijklmnopqrstuvwxyzáéíóúüñç'),%1$s)]"
+              },
+
               {
-                "label": "xpathRelativeDropdownFieldInput",
-                "value": "(//div[contains(@class, 'DropdownWidget---dropdown_value')])"
+                "label": "xpathAbsoluteTermCard",
+                "value": ".//p[contains(@class, 'ParagraphText---richtext_paragraph ParagraphText---default_direction ParagraphText') and contains(., %1$s)]"
+              },
+
+              {
+                "label": "xpathAbsoluteFileUploadLabel",
+                "value": "(//*[(self::span or self::label)and contains(@id, '_sectionLabel') and starts-with(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'file upload')]/ancestor::div/parent::div)[20]"
               }
+
             ]
         },
         {
